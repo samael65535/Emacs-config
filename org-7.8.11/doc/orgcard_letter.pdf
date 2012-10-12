@@ -1,0 +1,40 @@
+p->topic-value topic)))
+
+(defsubst info-lookup->regexp (topic mode)
+  (nth 1 (info-lookup->mode-value topic mode)))
+
+(defsubst info-lookup->ignore-case (topic mode)
+  (nth 2 (info-lookup->mode-value topic mode)))
+
+(defsubst info-lookup->doc-spec (topic mode)
+  (nth 3 (info-lookup->mode-value topic mode)))
+
+(defsubst info-lookup->parse-rule (topic mode)
+  (nth 4 (info-lookup->mode-value topic mode)))
+
+(defsubst info-lookup->other-modes (topic mode)
+  (nth 5 (info-lookup->mode-value topic mode)))
+
+(defun info-lookup-add-help (&rest arg)
+  "Add or update a help specification.
+Function arguments are specified as keyword/argument pairs:
+
+    \(KEYWORD . ARGUMENT)
+
+KEYWORD is either `:topic', `:mode', `:regexp', `:ignore-case',
+ `:doc-spec', `:parse-rule', or `:other-modes'.
+ARGUMENT has a value as explained in the documentation of the
+ variable `info-lookup-alist'.
+
+If no topic or mode option has been specified, then the help topic defaults
+to `symbol', and the help mode defaults to the current major mode."
+  (apply 'info-lookup-add-help* nil arg))
+
+(defun info-lookup-maybe-add-help (&rest arg)
+  "Add a help specification if none is defined.
+See the documentation of the function `info-lookup-add-help'
+for more details."
+  (apply 'info-lookup-add-help* t arg))
+
+(defun info-lookup-add-help* (maybe &rest arg)
+  (let (topic mode regexp ignore-case doc-sp
