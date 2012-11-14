@@ -91,7 +91,7 @@
 (compile (concat "gcc -ggdb -o " (buffer-name (current-buffer))".out " (buffer-name (current-buffer)) " -lm"))
 )
 ;;快捷键F9
-(global-set-key [(f9)] 'compile)
+(global-set-key [(f12)] 'compile)
 
 ;;evernote-mode代码
 (setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
@@ -120,7 +120,10 @@
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(safe-local-variable-values (quote ((encoding . utf-8) (todo-categories "study plan" "reading book" "personal") (todo-categories "reading book" "study plan" "personal") (todo-categories "study plan" "personal"))))
- '(scroll-bar-mode (quote right)))
+ '(scroll-bar-mode (quote right))
+ '(send-mail-function (quote smtpmail-send-it))
+ '(smtpmail-smtp-server "smtp.gmail.com")
+ '(smtpmail-smtp-service 25))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
