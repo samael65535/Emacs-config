@@ -163,7 +163,7 @@
 
 ;;xscheme-mode
 (add-to-list 'load-path "~/.emacs.d/xscheme/xscheme.el")
-
+(require 'xscheme)
 ;;设置magit
 (add-to-list 'load-path "~/.emacs.d/magit")
 (require 'magit)
@@ -172,8 +172,12 @@
 (require 'recentf)
 (recentf-mode t)
 
+;; golden-ratio分割窗口
+(add-to-list 'load-path "~/.emacs.d/golden-ratio/")
+(require 'golden-ratio)
+(golden-ratio-enable)
 
-;;python all in one
+;;Python all in one
 ;; (add-to-list 'load-path "~/.emacs.d/emacs-for-python/") ;; tell where to load the various files
 ;; (require 'epy-setup) ;; It will setup other loads, it is required!
 ;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
@@ -182,6 +186,3 @@
 
 ;; (require 'pymacs)
 ;;   (pymacs-load "ropemacs" "rope-")
-
-
-
