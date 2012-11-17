@@ -1,8 +1,3 @@
-;; 配置Cedet
-(add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
-(global-ede-mode 1)                      ; Enable the Project management system
-(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
 
 (setq default-frame-alist'((height . 30) (width .40) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 (setq default-directory "~/Code")    ;设置打开时的默认路径
