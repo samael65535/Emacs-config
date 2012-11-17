@@ -1,9 +1,12 @@
-(add-to-list 'load-path "~/.emacs.d/python")
-(require 'init-python-mode)
+;; 配置Cedet
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+
 (setq default-frame-alist'((height . 30) (width .40) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 (setq default-directory "~/Code")    ;设置打开时的默认路径
 (setq inhibit-startup-message t)
-(setenv "PYMACS_PYTHON" "python2.6")
 ;;切换到另一个窗口，快捷键为C+Tab
 (global-set-key [C-tab] 'other-window)
 ;;启动最大化
@@ -16,8 +19,7 @@
 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
 )
 
-;;设置packages路径
-(add-to-list 'load-path (expand-file-name "~/el"))
+
 ;;设置自动提醒
 (appt-activate)   ;调用函数
 ;; 设置weibo模式
@@ -177,12 +179,3 @@
 (require 'golden-ratio)
 (golden-ratio-enable)
 
-;;Python all in one
-;; (add-to-list 'load-path "~/.emacs.d/emacs-for-python/") ;; tell where to load the various files
-;; (require 'epy-setup) ;; It will setup other loads, it is required!
-;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
-;; (require 'epy-editing) ;; For configurations related to editing [optional]
-;; (load-file "~/.emacs.d/emacs-for-python/epy-init.el") 
-
-;; (require 'pymacs)
-;;   (pymacs-load "ropemacs" "rope-")
