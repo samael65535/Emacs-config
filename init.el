@@ -1,3 +1,23 @@
+(setq debug-on-error t)
+;; cedet jdee
+(add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
+(add-to-list 'load-path "~/.emacs.d/elib-1.0")
+(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
+;; If you want Emacs to defer loading the JDE until you open a 
+;; Java file, edit the following line
+(setq defer-loading-jde t)
+(if defer-loading-jde    
+    (progn    
+      (autoload 'jde-mode "jde" "JDE mode." t)    
+      (setq auto-mode-alist    
+            (append    
+             '(("\\.java\\'" . jde-mode))    
+             auto-mode-alist)))
+(require 'jde))
+
+(defun screen-width nil -1)
+(define-obsolete-function-alias 'make-local-hook 'ignore "21.1")
 
 (setq default-frame-alist'((height . 30) (width .40) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 (setq default-directory "~/Code")    ;设置打开时的默认路径
@@ -13,7 +33,6 @@
 (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
 )
-
 
 ;;设置自动提醒
 (appt-activate)   ;调用函数
@@ -116,6 +135,9 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
+ '(jde-java-environment-variables (quote ("1.6" "/usr/bin/java")))
+ '(jde-jdk (quote ("1.6")))
+ '(jde-jdk-registry (quote (("1.6.0" . "/usr/bin/java"))))
  '(safe-local-variable-values (quote ((encoding . utf-8) (todo-categories "study plan" "reading book" "personal") (todo-categories "reading book" "study plan" "personal") (todo-categories "study plan" "personal"))))
  '(scroll-bar-mode (quote right))
  '(send-mail-function (quote smtpmail-send-it))
