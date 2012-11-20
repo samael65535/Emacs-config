@@ -1,9 +1,15 @@
 (setq debug-on-error t)
-;; cedet jdee
+;; 不显示 隐藏文件
+(setq-default dired-listing-switches "-l")
+;; cedet 
 (add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
 (add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
 (add-to-list 'load-path "~/.emacs.d/elib-1.0")
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
+(global-ede-mode t)
+(enable-visual-studio-bookmarks)
+
+;; jdee
 ;; If you want Emacs to defer loading the JDE until you open a 
 ;; Java file, edit the following line
 (setq defer-loading-jde t)
@@ -15,6 +21,15 @@
              '(("\\.java\\'" . jde-mode))    
              auto-mode-alist)))
 (require 'jde))
+
+;; web-mode
+(add-to-list 'load-path "~/.emacs.d/web-mode/")
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (defun screen-width nil -1)
 (define-obsolete-function-alias 'make-local-hook 'ignore "21.1")
@@ -41,7 +56,7 @@
 (require 'weibo)
 (setq weibo-display-image nil)
 ;; 新版org-mode
-(setq load-path (cons "~/.emacs.d/org-7.8.11/lisp/" load-path))
+(setq load-path (cons "/org-7.8.11/lisp/" load-path))
 ;; 设置org-mode自动换行
 (add-hook 'org-mode-hook 'toggle-truncate-lines)
 
@@ -60,14 +75,14 @@
          :username "samael65535")))
 
 ;; 设置color-theme
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0/")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-pok-wog)
 ;; 备份文件目录
 (setq  backup-by-copying t) ; 自动备份
-;;自动备份目录~/.emacs.d/backup
-(setq  backup-directory-alist  '(("." . "~/.emacs.d/backup")))
+;;自动备份目录backup
+(setq  backup-directory-alist  '(("." . "backup")))
 (setq  delete-old-versions t) ; 自动删除旧的备份文件
 (setq  kept-new-versions 2) ; 保留最近的3个备份文件
 (setq  kept-old-versions 1) ; 保留最早的2个备份文件
@@ -100,15 +115,6 @@
 ;对所有文件生效
 (add-hook 'find-file-hooks (lambda () (linum-mode 1)))
 
-;; 更一个快速编译的方法
-(defun quick-compile ()
-"A quick compile funciton for C"
-(interactive)
-(compile (concat "gcc -ggdb -o " (buffer-name (current-buffer))".out " (buffer-name (current-buffer)) " -lm"))
-)
-;;快捷键F9
-(global-set-key [(f12)] 'compile)
-
 ;;evernote-mode代码
 (setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
 (add-to-list 'load-path "~/.emacs.d/evernote-mode/")  ;evernote-mode插件路径
@@ -135,6 +141,7 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
+ '(ede-project-directories (quote ("/home/samael/Code/my_projects/c/test_cedet")))
  '(jde-java-environment-variables (quote ("1.6" "/usr/bin/java")))
  '(jde-jdk (quote ("1.6")))
  '(jde-jdk-registry (quote (("1.6.0" . "/usr/bin/java"))))
@@ -184,15 +191,13 @@
 (add-to-list 'load-path "~/.emacs.d/xscheme/xscheme.el")
 (require 'xscheme)
 ;;设置magit
-(add-to-list 'load-path "~/.emacs.d/magit")
+(add-to-list 'load-path "~/.emacs.d/magit/")
 (require 'magit)
 
 ;; 设置最近打开的文件
-(require 'recentf)
 (recentf-mode t)
 
 ;; golden-ratio分割窗口
 (add-to-list 'load-path "~/.emacs.d/golden-ratio/")
 (require 'golden-ratio)
 (golden-ratio-enable)
-
