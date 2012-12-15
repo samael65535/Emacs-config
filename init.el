@@ -9,11 +9,14 @@
 (setq mouse-yank-at-point t);支持中键粘贴
 (global-cwarn-mode 1) ; 高亮显示C/C++中的可能的错误(CWarn mode)
 (setq initial-scratch-message ";; Abandon hope all ye who enter here\n") ;设置scratch的欢迎文字
+(global-set-key [(f1)] 'speedbar) ;开启speedbar
 (setq default-directory "~/Code")    ;设置打开时的默认路径
 (setq inhibit-startup-message t) ; 去掉欢迎界面
 (global-set-key [C-tab] 'other-window) ;切换到另一个窗口，快捷键为C+Tab
 (setq-default make-backup-files nil) ;不要生成备份文件
-
+;; markdown-mode
+(autoload 'markdown-mode "~/.emacs.d/markdown-mode/markdown-mode.el" "Major mode for editing Markdown files" t) 
+(setq auto-mode-alist (cons '("\\.text" . markdown-mode) auto-mode-alist))
 ;; Cedet 
 ;; (add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
 ;; (add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
