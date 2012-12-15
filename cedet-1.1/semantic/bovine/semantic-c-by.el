@@ -3,7 +3,7 @@
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2012 Eric M. Ludlam
 
 ;; Author: samael <samael@samael-ThinkPad-X200>
-;; Created: 2012-11-17 19:23:54+0800
+;; Created: 2012-06-04 21:33:21+0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

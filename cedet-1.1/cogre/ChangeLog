@@ -860,673 +860,106 @@
 2009-03-23  Eric M. Ludlam <zappo@gnu.org>
 
 	* cogre/cogre-mode.el (cogre-mode-map): Define map within
-	definition.  Add mouse events.
-	(cogre-mode-create-popup-menu, cogre-mode-update-popup-menu): New
-	menus.
-	(cogre-move-node): Allow a node to be moved by argument.
-	(cogre-node-position): Add noerror argument.
-	(cogre-down-mouse-1): New function for dragging nodes
-	(cogre-down-mouse-2): New function for creating a link.
-	(cogre-down-mouse-3): New function for dynamic popup menus.
-
-	* cogre/cogre.el (cogre-last-event-element-type): New
-	(cogre-default-node): Use above
-	(cogre-default-link): Use above
-
-2009-03-22  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-mode.el (cogre-tool-bar-map): New.
-	(cogre-mode): Setup toolbar.
-	(cogre-new-node): Remove stray code.
-
-	* cogre/cogre-package.xpm: New file.
-	* cogre/cogre-isa.xpm: New file.
-	* cogre/cogre-hasa.xpm: New file.
-	* cogre/cogre-class.xpm: New file. Icons for COGRE toolbar.
-
-	* cogre/cogre.el (cogre-default-node, cogre-default-link): Support
-	selecting a node based on a key symbol.  (ie, toolbar.)
-
-	* cogre/cogre-uml.el (cogre-aggregate, cogre-uml-enable-unicode):
-	Fix typo in aggregate name.
-
-2009-03-19  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el:
-	* cogre/Project.ede:
-	* cogre/Makefile (cogre-version): Update Version
-
-2009-03-12  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/.cvsignore: No info or jpg
-
-2009-03-05  Alex Ott <alexott@gmail.com>
-
-	* tests/.cvsignore: New file.
-	* srecode/.cvsignore: New file.
-	* speedbar/.cvsignore: New file.
-	* semantic/wisent/.cvsignore: New file.
-	* semantic/symref/.cvsignore: New file.
-	* semantic/ctags/.cvsignore: New file.
-	* semantic/bovine/.cvsignore: New file.
-	* semantic/.cvsignore: New file.
-	* eieio/.cvsignore: New file.
-	* ede/.cvsignore: New file.
-	* contrib/.cvsignore: New file.
-	* common/.cvsignore: New file.
-	* cogre/.cvsignore: New file. add ignore files to not show
-	auxiliary scripts, not included into CVS
-
-2009-02-24  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Makefile (EMACSFLAGS): New variable.
-	(init,dot,Mode,hacks,COGRE,tests): Use above.
-
-2009-01-29  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Project.ede ("COGRE"): Updated version to 0.7
-
-	* cogre/Makefile (VERSION): Updated to 0.7
-
-	* cogre/cogre.el (cogre-version): Updated to version 0.7.
-
-2009-01-28  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-utest.el (cogre-utest-link-at): Change to use
-	'push-mark' instead of 'push-mark-command'.
-
-2009-01-24  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el (cogre-uml-enable-unicode): Update doc to
-	describe the code pages.
-
-2009-01-20  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/INSTALL: Add dicussion on unicode drawing chars.
-
-	* cogre/cogre-uml.el (cogre-uml-enable-unicode): Support unicode
-	UML symbols.
-
-	* cogre/picture-hack.el (picture-rectangle-ctr)
-	(picture-rectangle-cbl, picture-rectangle-cbr): Added in from
-	picture mode.
-	(picture-draw-rectilinear-line): Use correct corners.
-
-	* cogre/cogre-utest.el (cogre-utest): Use new cedet logging fcns.
-	Fixup to work in batch mode.
-	(cogre-utest-make-node-at): Render the graph.
-	(cogre-utest-link-at): Pass nomsg to push-mark.
-
-	* cogre/cogre-mode.el (cogre-node-position): New fcn.
-	(cogre-move-node-left, cogre-move-node-right, cogre-move-node-up):
-	(cogre-move-node-down): Use cogre-node-position.
-
-	* cogre/cogre.el (cogre-noninteractive): New fcn.
-	(cogre-graph-element::cogre-entered): No message in
-	non-interactive mode.
-	(cogre-node::cogre-erase, cogre-node::cogre-render): Convert
-	mapcar to mapc.
-
-	* cogre/picture-hack.el (picture-insert-rectangle): Don't use
-	insert-rectangle, but do it directly inline.
-
-2009-01-10  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/picture-hack.el (picture-rectangle-ctl): XEmacs compat
-	hack.
-	(picture-draw-rectilinear-line):
-
-	* cogre/cogre-utest.el (cogre-uml-utest): Force tag loading.
-
-2009-01-05  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-utest.el (cogre-uml-utest): New test.
-
-	* cogre/cogre-uml.el (cogre-inherit): Reduce the horizontal
-	preference.
-
-	* cogre/Makefile (tests_LISP): New var
-	(all): Add tests
-	(dist): Add tests
-	(tests): New target
-
-	* cogre/Project.ede ("tests"): New target.
-
-	* cogre/cogre-utest.el (picture-hack, cogre-mode): New requires
-
-	* cogre/cogre-utest.el: New file. Basic unit tests for cogre.
-
-	* cogre/cogre-mode.el (cogre-mode): Disable transient mark mode in
-	cogre buffers.
-	(cogre-new-node): Return the node
-	(cogre-new-link): Return the link
-
-2008-07-03  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el (cogre-package, cogre-class, cogre-inherit)
-	(cogre-aggrigate): Add autoload cookies.
-
-	* cogre/cogre.el (cogre-load): Move require after eieio.
-	(cogre-graph, cogre-graph-element, cogre-node, cogre-link): Add
-	autoload cookies.
-
-2008-05-11  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.texi (top): Update main header of COGRE, and all
-	node entries to new format.
-	(Creating Nodes and Links)
-	(Moving Nodes, Customizing Nodes): Wrote.
-
-2008-04-14  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Makefile (VERSION): Updated to 0.6.
-
-	* cogre/Project.ede (COGRE): Update version.
-
-	* cogre/cogre.el (cogre-version): Update to 0.6.
-
-2008-03-11  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Makefile (LOADPATH): Added EDE
-
-	* cogre/Project.ede ("COGRE"): Renamed from bogus thing.
-
-2007-04-15  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (cogre-graph::cogre-save): Deleted from this
-	file.
-	(cogre-semantic-uml-graph::cogre-save): Allow saving.
-	(cogre-semantic-class::initialize-instance): Copy the tag found.
-
-	* cogre/uml-create.el (cogre-graph::cogre-save): Add comment about
-	why we can't save.
-
-	* cogre/cogre.el (cogre-load-graph): Stop using a temporary graph.
-
-2007-03-18  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Makefile (LOADPATH): Stripped down version
-	(wy): Spelling fix.
-	(autoloads, init, dot, Mode, hacks, COGRE, dist): Various changes
-	from EDE patches.
-
-2007-02-19  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (semanticdb-find): Add require
-	(cogre-semantic-class::initialize-instance)
-	(cogre-read-class-name)
-	(cogre-uml-quick-class)
-	(cogre-uml-create): Convert to new semanticdb search.
-
-	* cogre/cogre-mode.el (cogre-mode): Add semantic-match-any-mode
-	feature.
-
-	* cogre/cogre.el (cogre-load, picture-hack): Add requires for
-	byte-comp.
-	(cogre): Add to tools group.
-
-2007-02-03  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el
-	(cogre-semantic-class::cogre-uml-stoken->uml): Disable images in
-	semantic formatted strings.
-
-2005-09-30  Eric M. Ludlam <zappo@gnu.org>
-
-	* common/pprint.el:
-	* common/mode-local.el:
-	* common/inversion.el:
-	* common/fame.el:
-	* common/ezimage.el:
-	* common/cedet-load.el:
-	* common/cedet-compat.el:
-	* common/cedet-autogen.el:
-	* cogre/wisent-dot.wy:
-	* cogre/wisent-dot.el:
-	* cogre/uml-create.el:
-	* cogre/picture-hack.el:
-	* cogre/cogre.el:
-	* cogre/cogre-uml.el:
-	* cogre/cogre-mode.el:
-	* cogre/cogre-load.el:
-	* cedet-update-version.el:
-	* cedet-update-changelog.el:
-	* Makefile: Update all GPL headers with script from
-	savannah.gnu.org.
-
-2005-02-03  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Project.ede ("COGRE"): Update version number.
-
-	* cogre/Makefile (VERSION, Makefile): Updated from project file.
-
-	* cogre/cogre.el (cogre-version): Update version number.
-
-2004-09-28  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (semantic-grammar-batch-build-packages): Use
-	new semantic :type.
-
-2004-05-25  David Ponce <david@dponce.com>
-
-	* semantic/wisent/Makefile:
-	* semantic/tests/Makefile:
-	* semantic/bovine/Makefile:
-	* semantic/Makefile:
-	* contrib/Makefile:
-	* cogre/Makefile: Re-generated to start Emacs with --no-site-file.
-
-2004-04-06  Eric M. Ludlam <zappo@gnu.org>
-
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* contrib/Makefile:
-	* common/Makefile:
-	* cogre/Makefile (dist): Distribute the autoload file
-
-2004-03-28  David Ponce <david@dponce.com>
-
-	* cogre/Makefile: Rebuild.
-
-	* cogre/Project.ede (wisent): Rename target to "wy".
-	(COGRE): Remove semantic-el dependency.  Add dependency on
-	inversion and speedbar.
-
-	* cogre/cogre-uml.el (cogre-class): Doc fix.
-
-2004-03-25  David Ponce <david@dponce.com>
-
-	* contrib/wisent-csharp.el:
-	* cogre/wisent-dot.el (semantic-wisent): Require instead of
-	wisent-bovine.
-
-2004-02-29  Eric M. Ludlam <zappo@gnu.org>
-
-	* speedbar/INSTALL:
-	* semantic/INSTALL:
-	* eieio/INSTALL:
-	* ede/README:
-	* cogre/INSTALL: Revamped. We are a part of a CEDET install now.
-
-2004-02-02  David Ponce <david@dponce.com>
-
-	* cogre/wisent-dot.el (semantic-tag-components): New override for
-	`graphviz-dot-mode'.
-
-2004-01-23  David Ponce <david@dponce.com>
-
-	* cogre/wisent-dot.wy: Some code cleanup.
-	(<keyword>, <symbol>, <string>, <number>): Declare as type.
-	(<punctuation>, <block>): Use type defaults.
-	(epilogue): Define `wisent-dot-lexer' here.
-
-	* cogre/wisent-dot.el (wisent-dot-lexer): Remove.  Defined in
-	grammar.
-
-2004-01-15  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/wisent-dot.el (semantic-lex-dot-blocks): Deleted.
-	(wisent-dot-lexer): Remove old style analyzers. Replace with
-	auto-generated ones.
-
-	* cogre/wisent-dot.wy (punctuation, block): Use new %type command
-	to build lexers.
-
-2003-10-02  Eric M. Ludlam <zappo@gnu.org>
-
-	* speedbar/Project.ede:
-	* semantic/Project.ede:
-	* eieio/Project.ede:
-	* ede/Project.ede:
-	* common/Project.ede:
-	* cogre/Project.ede: Now a meta-subproject.
-
-	* speedbar/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* cogre/Makefile (dist): Remove local creation of tar file.
-
-2003-09-24  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el:
-	* cogre/Project.ede:
-	* cogre/Makefile: Update version to 0.4beta1.
-
-2003-09-18  David Ponce <david@dponce.com>
-
-	* speedbar/Makefile:
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* cogre/Makefile: Re-generated.
-
-	* speedbar/Project.ede:
-	* eieio/Project.ede:
-	* ede/Project.ede:
-	* cogre/Project.ede (init): New target.
-
-2003-09-17  David Ponce <david@dponce.com>
-
-	* speedbar/Makefile:
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* cogre/Makefile: Re-generated.
-
-	* speedbar/speedbar-load.el: New file.
-	* eieio/eieio-load.el: New file.
-	* ede/ede-load.el: New file.
-	* cogre/cogre-load.el: New file. New file.
-
-	* cogre/Project.ede (autoloads): Change cogre-defs.el by
-	cogre-loaddefs.el.
-
-2003-09-16  David Ponce <david@dponce.com>
-
-	* speedbar/Makefile:
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* cogre/Makefile: Re-generated.
-
-	* speedbar/Makefile:
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* cogre/Makefile: Re-generated.
-
-	* cogre/Project.ede (target COGRE): Remove non existing file
-	cogre-lay.el from target.
-
-2003-09-14  David Ponce <david@dponce.com>
-
-	* cogre/wisent-dot.el (wisent-dot-setup-parser): Fix use of
-	obsolete names.
-
-2003-09-10  David Ponce <david@dponce.com>
-
-	* speedbar/Makefile:
-	* semantic/Makefile:
-	* eieio/Makefile:
-	* ede/Makefile:
-	* cogre/Makefile: Re-generated.
-
-2003-09-07  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Makefile: New file. Makefile.
-
-	* cogre/Project.ede ("wisent"): New
-	("autoloads"): New
-	("dot"): New
-	("mode"): New.
-
-	* cogre/uml-create.el (initialize-instance)
-	(cogre-token->uml-function, cogre-uml-stoken->uml)
-	(cogre-uml-browse-token-highlight-hook-fn)
-	(cogre-uml-source-marker)
-	(cogre-read-class-name, cogre-uml-quick-class): New semantic API
-
-	* cogre/cogre-mode.el: New file. Coped elements from cogre.el
-
-	* cogre/cogre.el (cogre-box-face, cogre-box-first-face)
-	(cogre-box-last-face): Removed
-	(cogre-graph-element): made abstract
-	(cogre-node): made abstract
-	(cogre-link): made abstract
-	(cogre-mode-map, cogre-substitute, cogre-insert-class-list)
-	(cogre-insert-forms-menu, cogre-change-forms-menu): Removed
-	(cogre): autoload cookie.
-	(cogre-mode, & many others): Removed
-	(cogre-default-node, cogre-default-link): Use 4th arg to
-	eieio-read-subclass.
-	(cogre-load-graph): autoload
-
-	* cogre/wisent-dot.wy: Removed obsolete code.
-
-	* cogre/wisent-dot.el (wisent-dot-automaton, other autogen):
-	Deleted
-	(wisent-dot-setup-parser): Removed autogen parts, copied in parts
-	that used to be in the .wy file.
-
-2003-07-23  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/wisent-dot.wy (languagemode): Set to graphviz-dot-mode
-
-2003-03-26  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/test.dot: New file. Sample dot file for dot parser.
-
-	* cogre/wisent-dot.el (wisent-dot-automaton, wisent-dot-keywords)
-	(wisent-dot-tokens)
-	(wisent-dot-setup-parser): Updated from grammar.
-
-	* cogre/wisent-dot.wy (FONTNAME, FONTSIZE): New tokens.
-	(DILINK, LINK): Now of punctuation type.
-	(number): New token class.
-	(graph-contents): Added graph-attributes
-	(graph-attributes): New
-	(links): Optional semicolon and attribute vector.
-
-	* cogre/wisent-dot.el: New file. Lexer, Grammar and support for
-	parsing graphviz dot files.
-
-	* cogre/wisent-dot.wy: New file. Grammar file for graphviz dot
-	files
-
-2003-02-25  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (initialize-instance): Use new function that
-	calculates externally defined children of a type.
-	(cogre-uml-quick-class): typo
-
-2001-12-05  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Project.ede: Version.  New layout code.
-
-	* cogre/uml-create.el (cogre-save): New method.
-	(initialize-instance): Enable classes and structures.  Add default
-	name for unfound classes in semantic.
-	(cogre-uml-stoken->uml): Get buffer from objectified class.
-	(cogre-uml-quick-class): Get the superclass instead of just the
-	parent.
-
-	* cogre/picture-hack.el (picture-insert): Fix for older versions
-	of Emacs.
-
-	* cogre/cogre-uml.el (cogre-class): Add :custom specifiers to some
-	slots.
-
-	* cogre/cogre.el (cogre-graph): Added extension.
-	(cogre-node): Remove initargs from fields not to be saved.
-	(cogre-link): Enable STRINGS as node entries for intermediate save
-	state.
-	(cogre-loading-from-file): New variable.
-	(cogre-mode-map): Supress the keymap. Add save command.
-	(cogre-mode-menu): Added Save and Save As entries.
-	(cogre-map-elements, cogre-map-graph-elements): New fcn
-	(initialize-instance): Do not initialize when loading from a file.
-	(cogre-render-buffer): Use new map-lements command.
-	(cogre-element-pre-serialize, cogre-element-post-serialize): New
-	methods.
-	(cogre-save-graph-as, cogre-save-graph, cogre-load-graph): New
-	commands.
-
-2001-08-17  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (cogre-uml-browse-token-hook): New hook.
-	(cogre-uml-browse-token-highlight-hook-fn): New function for
-	above.
-	(cogre-uml-source-marker): Use hook instead of always highlighting
-	a token.
-
-	* cogre/uml-create.el (cogre-token->uml-function): New variable.
-	(cogre-uml-stoken->uml): Use above to generate text.
-	(cogre-uml-source-marker): Momentary highlight tokens.
-
-	* cogre/picture-hack.el (picture-insert): Fix move-to-column typo
-	from previous checkin.
-
-	* cogre/cogre.el: Update version.
-	(eieio-base): require
-	(cogre-custom-originating-graph-buffer): New local variable.
-	(cogre-activate): Track the originating buffer before customizing.
-	(eieio-done-customizing::cogre-graph-element): Set buffer to the
-	graph before forcing a re-render.
-
-2001-08-14  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/picture-hack.el: Use `move-to-column' instead of
-	`move-to-column-force' for backward compatibility.
-
-2001-08-08  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/Project.ede: New file. Project file for cogre.
-
-	* cogre/cogre.texi: New file. Outline of a cogre manual
-
-	* cogre/picture-hack.el (picture-insert-rectangle): Added Emacs 21
-	compatibility comment.
-	(clear-rectangle): New compatibility function.
-
-	* cogre/cogre.el: Support latest EIEIO changes.
-	(cogre-new-node): Pass prefix arg to `cogre-default-node'.
-	(cogre-new-link): Pass prefix arg to `cogre-default-link'.
-	(cogre-layout): Remove these methods.
-
-2001-07-20  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el: Added comment about ASCII UML.
-
-2001-07-12  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el: Use :class instead of class for allocation of
-	slots.
-
-2001-06-12  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/INSTALL: New file. Installation instructions for COGRE.
-
-2001-06-06  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/picture-hack.el (Colin Marquardt): Added XEmacs
-	compatibility functions.
-
-2001-06-05  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (cogre-uml-stoken->uml): Call abbreviate
-	token from the originating buffer.
-
-2001-05-21  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el (cogre-string-with-face): Fixed bug in last fix
-	that colorized everything.
-
-	* cogre/uml-create.el: do not use window-list, it is Emacs 21
-	only.
-
-	* cogre/cogre.el: Stopped using `plist-member' which appears to be
-	Emacs 21 only.
-
-2001-05-19  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el (cogre-semantic-uml-graph): New class.
-	(cogre-insert-clas-slist:cogre-semantic-uml-graph): New method.
-	(cogre-uml-source-marker:cogre-semantic-class): New method
-	(cogre-uml-source-display): Split into cogre-uml-source-marker for
-	getting the position to jump to.
-	(cogre-activate:cogre-semantic-class): New method.
-	(cogre-uml-quick-class): Make sure all tokens are in buffers.
-	Create the graph from cogre-semantic-uml-graph.
-
-	* cogre/cogre.el (cogre-node): Fixed documentation.
-	(cogre-substitute): Doc fix.
-	(cogre-mode-map): Added RETURN binding to edit/view.
-	(cogre-insert-class-list:cogre-graph): New method
-	(cogre-insert-forms-menu): Call graph method for things to insert.
-	(cogre): accept an argument for the class of the graph to create.
-	(cogre-activate-element): New function.
-	(cogre-activate:cogre-graph-element): New method.
-
-2001-05-18  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/uml-create.el: New file. Code from `cogre-uml.el' specific
-	to semantic.  New code handles graph/source interactions.
-
-	* cogre/cogre-uml.el: Moved out semnatic specific UML into
-	`uml-create.el'
-	(cogre-uml-stoken->uml): New function.
-	(cogre-node-slots): Use above.
-
-	* cogre/cogre.el (*-face): Under/Over lines match default
-	foreground color.
-	(cogre-link): Types are now the explicit class name (return of
-	eieio feature).
-	(cogre-move-node): Inhibit motion hooks.
-	(cogre-render-buffer): Inhibit motion hooks.
-	(cogre-entered, cogre-left: cogre-graph-element): New methods.
-	(cogre-node-rebuild): Use underlining when possible instead of
-	overlining.
-	(cogre-string-with-face): Propagate properties on passed in
-	strings.  Conglomerate new face with old faces.
-
-2001-05-09  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el: Converted to use the new eieio-named base class.
-	Added "Delete" to the menu.
-
-	* cogre/cogre-uml.el: Converted to use the new eieio-named base
-	class.
-
-2001-05-07  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el (cogre-class): Set the alignment to left.
-	(cogre-node-slots): Use the new uml-abbreviate method.
-	(cogre-read-class-name): Fix bugs w/ current class under cursor.
-	(cogre-uml-quick-class): Added recentering code.
-
-	* cogre/cogre.el (cogre-horizontal-margins)
-	(cogre-vertical-margins): New variables
-	(cogre-graph-element): Added `menu' field.
-	(cogre-node): Added `alignment' field.  Added menu to minor mode
-	keymap.
-	(cogre-insert-forms-menu, cogre-change-forms-menu): New fcn.
-	(cogre-new-node,cogre-new-link): Only rerender if interactive.
-	(cogre-move-node): Pulled out guts into a method.
-	(cogre-move, cogre-move-detla): New Node mehtods.
-	(cogre-rebuild:cogre-node): Added alignment when rebuilding the
-	rect.
-	(cogre-string-with-face): Handle an alignment argument.
-	(cogre-current-element): Make the passed in point optional.
-
-2001-05-02  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el: Messed with some link icons.  Added a class
-	slot to the class node.  Added cogre-uml-quick-class, and got most
-	of it working.
-
-2001-04-25  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el: Added new default names to nodes.
-	Initialize a CLASS node by asking for a class, derived from
-	semantic, from which the the details are created.  Fixed typo for
-	ratio.  Fixed `cogre-read-class-name'.
-
-	* cogre/cogre.el: Added a layout direction to links so they can
-	choose a preferred layout.  Moved cogre-substitute so it wouldn't
-	throw an error.  Always truncate lines in a graph.  Fixed bug when
-	choosing the face of the last slot in a box.  Updated
-	widest-string method to also take slots into account.  Fixed
-	anchor calculation for endpoint down links.  Added mock functions
-	for the layout engine.
-
-2001-04-24  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre-uml.el: New file. *** empty log message ***
-
-2001-04-23  Eric M. Ludlam <zappo@gnu.org>
-
-	* cogre/cogre.el: Allow links to contain a start/end which is a
-	child of cogre-node.  Added support for start/end glyps on lines.
+	definition.  ÿØÿà JFIF      ÿÛ C 
+	
+ÿÛ CÿÀ "" ÿÄ           	
+ÿÄ µ   } !1AQa"q2‘¡#B±ÁRÑğ$3br‚	
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyzƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùúÿÄ        	
+ÿÄ µ  w !1AQaq"2B‘¡±Á	#3RğbrÑ
+$4á%ñ&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz‚ƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ   ? Àø¡i"ø÷¡Xk$Öq™¯0VCM"«d€FåƒØW¹k2jÃÅ2kş)UÔç`]B[HŞˆœ‹kt”2[F2£k™Ü€ /Ï_/ø[ZÕ¼;ã-7\Ğ¤XõIÖHãk…[$¤HàšúIü{á~+BHµ/İÅŸ:{[×ˆXÜy ÛnË•;C¡I$ûâù¯ĞıW9£Wëª•âão5«¿ºmÛ^„-¬5_ƒ6^(šqq©èš¼6Içãí£¦÷¶˜ä¶å![küËÏ-Ç?e#FÔ5«ZÚ^ÜË5ãŞ]Ï=µ¬mw¨è† $à ˜?( s‘\ïÅ]ø¿NÓü)áC xOKf’ŞÌŞ@ÒÜJAi˜rØ'©'æ$’On¼G¯±Õ®¬ü<°^êÒÇ=ãÜjÜÀ®û¸åPvcÌ à(S÷dapVÃÂõ“Z¤Ò}4ºîúë§s¿Õ|áë|8ÓGwsgwjò§Ïn'ÜHd•ƒÄÚ’GqÖ²µŸ‰>ŸTğòßè÷Òé–òÜŞC«ğ¥ÖuùÀW¢€¥ƒf²îş!x—Q¿·:‡ƒìn¬#K…k7ÔãÁyWa‘\6Pí,§2± Æjø¿ÅMâŸøHfğÆ”÷í§Ï¦Nò5he|íe2Â¯İaÓh¦©ù~#¥I'(j“ûk¯M½—h<e£^^i³ŸøHu#KI^K¢4Íä@’€Y¼Óòãäùˆ«ş)ø—b/°×.,µu]6K;éF‹<O
+ùĞ²yNÓå¸íÓmq7~:ñíŞ…w?„m#›@4ÄƒU8bTtİûÅUØ d)ÄSõÏë:şy¤Şø@;¦‘Ø¦¯n²©y„)
+hoU'“–<a{=VŸ‰yÅÊjŸ¼¶oñïÓ]:k…ñ§ZïŒtûÅ²Ô¬ñe±¡½¶x0|ÆåğHÁ\œuúWš×WãıZë]ñ?ö¥ŞŸö)&ŞP¸‚`2ÄğbUàgø²Şæ¹Jê¦­¢ÀÓöt!ZËÔ(¢Š³¨(¢Š (¢Š (¢Š (¢Š (¢Š (¢Š (¢4’¬h¥™Ğr{P˜¤	Š7–NĞøà¸ÏãL®Ï\¶ÓÇÃû8¬$%…ËEuîÃ“î2¸Ú¸Ê„ùÕÂŠ( °¢Š( ¢Š( ¢Š( ¢Š(Ö™}ı›­Yê"Ú“m2MäÎ»£“kµ‡pqƒVüM­øºÿ ^}6ÊÁ¯%ó­¢mŠ> ÂÃ?eQJÊ÷#ÙÇŸŸ­­ò6F½ğğÏö.Ÿ¸İŸíŸ¿ãø3ıŞ¿Cá½]|;â›-hi–Wÿ erÿ f»Œ<ReHÃ®
+Ì¢U°½”yehïŸÌ³}0Ôõ««Ô³†s3Ì  DÜÄíQØàVî¥s>©áE«i‚Aö¸ğ%¸ŞrwñØôäâ£ÓíÚØ3/ïXe§µ\©f’º²ÛoºÆf‡¨Ïá]e¯ßG°½¶æ+ØXğêWpÈ8aÔñ¬-‰·W¦3]s¢ÉGPÊzƒ\åí·ÙnÚ0ISÊ“éMR’ro«ıoøœxšM5—DÓ´µ±³K0–+´M´¬|õsÜÖSI-¥:q§ì[Ò­a¾×¬¬®&òaâ8Oî+0şF¾—Õ>ø-ü+q§ÒÕ"…Š\¢,d);Ëõ'Œœğy¯—kzçÆ+¼Ğ¿±®µûÙlvì13ıåşé=Hö&³©	I«;ì%jòƒ¥>[zÿ _yƒÛ®}ÅQZQE QE QE QE QE³¡øcUñ˜Ö§—¤‘¶¨'·¹«óxPğ¼²_êQÆk‹vF¯!àcıŞ[ğGBñF©áï1lZ6C–EÜ	õö4ÍwÄšŸˆf¯İ6G‘Æ»Us×ñ£[ù5UÔ³·'âhí<-4 yïdGØv"ä‚}É==½dQNE.áGSM³d¬,q¼µ’k£Ò¼©jK½a`Øğã[şğÔ+
+__G»sm>›Ï×°Ïø×´xsNÓ<•{¥ÊôR Uú/õë\Õ+[cÌÅã4ÜQâ-àŠ<Ï}l¹`~5›wà«•·iìäŠê%êğ8p>¸é_@xªãLŠÑ„[FjùÏÅz©±×æ™pÖ·Hx–µ±õÆ²U¥kšeÎ®-];?5¡‹qk5´…%B¤zÔÖiº§´É¢šàÖ­“ÌuŒanuuˆã+ï‘ÆqÍ\[Éí)5ÑF´j+£²2wpš´‘Š+S@¢Š( ¢Š( §&«™¦Ñ@uCN¾I¡X]±*ŒsüB¯Ög¢Ó³
+ÅÖÈûDC¾ÓŸÎµåš8"2JÁTz÷®nîá®®šSÀ<è)£Z1w¹Wªü?ø}áøóVÕµ£¹I$Bc˜"Ú…Ã¾zóÆ)Îj*ì¼N&xsÏm*¢•€@`Àıé*ÂŠ( Š( Š( Š( Š( Š( Š&º¿xVmd‚¨Ç$ d“èçùR’Š»"uÙÊV–‰möZ(ñEmkş“LO1FåìEgøfAˆ"-Ù…O2qº3•E*mÄôY/bµÔÚÙµÛïÅ³ù
+½ˆeóRŞùÜàdà}MyÎ»©ÏeâİRÙ³ÅË°>¡à"+7ş¡“ÌSÎ1×¥`­c²b8µÙ~G}ñZ²Ó´p¶ i¯X|Ñù@.}9ükÅBêúÄ’Km§ß\€HiV(»ıÑùÒë²ÜÎóK&ây<×6Ú…Ñµ‚æo(9aâTg®Jâ­VÏ•ÕŸÔ¢©EëÕÙÀ:}â÷Ã*±Õ¥¸µ…­gWh„ÂFuèÊBgª’9=ëĞo<C¢x‹Sÿ ‰…õ¦¶wÃ]JŠ‰ÏŞ'‘ÇÖ¼rÆŞkÛèláòÏ"ÄŠ;–!Gó¯tñ×ˆ§şÑ:|ˆa%UèñÀü+Ÿ¥9ÉSvüN
+¤ZWv}z|"ş4é•À5VŸ$#–cÍ2½ôvÅYQ@ÂŠ( Š( 8éVşñjÜ>=Îj½	¤÷$²JÛ¤vsîsL¢Š¡˜+(bpÀ×Ö’Š (¢Š (¢Š (¢Š (¢Š (¢Š (©`·šæ_.ÙÛÑE_¢S%#Ó4®Kœc»2è©®-.-_dñ2ÙèjcM=‡Æ…Üë^ÍàhE¾ŒÂUR® ÷NGôükÈ,¥Hn’GEp¬	Vè}vßğšˆ´ó´ÁòíÄgóÀü…cZ.JÈäÅÂS´QØjo·kukhWr…P~Ãüó\v›àV}XMîÆç[	ÔâšæYåÊ û¸ÈÉ­í\é×š•Ûİ_0o*ÂñÀ½‡ şu…Ü.‘ÉJXŞÛm¯ız³ø‡¡Ap[UÑîRöëO"Õbƒ/åv>G€0ÀrÒkÌáJıì×£ê¾?LÚßJ…VXXÊÒÄ
+üäagpU»pk—Ô/<®ââhfĞoœæV³u»zŸ(ıÒÙ gµa.hí©ô89VÃÒTê+Ålô¿Ívím¶ó8û”ŠPCgŞ±å8Ü„æ»ü?§ëŞ2Ó|=ájişØÛ{Ûo$DpI8V9 èk«_ø7Â·{õ	å×®ã9:ˆàş¹‚KÀ=«J¥Y8Ó‰æãëÆu,£ï¼>Ö*¾3Õ#òàˆ§Æãi9n?º¼à÷n)u+¶¼¾yXç&¯kZõÎ©1.øQÂ¨àØØV.rkÕÂa•Û¯QP¤×¿=ÂŠ(®³¤(¢Š (¢Š (¢Š (¢Š (¢Š (¢Š )Êá¶#6Ñ¸íàzŸjmtŞñ­ï„aÔ£³±´¹ğùLnù1œ£“ÁàñIŞÚÔ”£à®şã™¢ƒS4
+(¢€
+(¢€
+tq´³,h2ÌBŠmké:}Ïö•¼®WvpÇšMØ™ÉE\èl¬â²µX£?ÄİØÕŠR¥[kIYcwwdWñ][´3.å?§¸®*êİío$ú¡Æ}kº®K^*u©6öUëŠ¸3£'{”fŠ*ÎÓGMÕ®4Ù„»)†º‹_ˆºŒ*T„… ŸÆ¸j*%Ës”!SâGk§Âªê*—^±fcÎÓ"gòaW5/x*Oc“kcgj‚#'2?VbI9Á;F}+•ğã”Öá#ûÂº]oÁ~/ÿ „ºîïK´óôÙˆ»7>bâ%s’¬	p9àu5ËR„–„Ñ…8Öj¤í¦—o{ù³/ZÒì|)ã-_Ó-’;kYÒI]YAÃã¥ªOXuSs¢ky@’)Tå]O ƒèEdøóYÓíôØ4û;ƒ<‰Ì²t ßZ·mİ·Âm%uù²‰'…T…Û(=»œz0¬éÉF¿,z­JÄ(ÂTßÚÕ?5º×C¢ôW¢lQE QE QE QE QE QE QE QE QE QE QE Og³íğïÆİÃ9®˜pAë\•^MVé#Ù•ovÔµs´ÜµGboa¹(»”Læ^ÿ ZZàŞydŸÎiÿ QSNü&Ñw.>´¹~ªÖÌêï¯¡±€¼ŒcåNä×4¯=ÃÍ!Ë9É¦»¼]İ™v94Ú¤¬oJ’€QEÍBŠ( q«ÍZş6Ô<] ³MôÒhú‹-ç#%òÑìG8¨Æ:æàm·}ë±ñ‰/tïéŠ°Ãw¦OÁ4 t2nÈõ#úäÅEÙ4ìd”½¼ym­÷ûşşÇŠK-Ş­o<ìrN2~ñ¯oñ5Ş®hZ–8{e†8LxÃBÊŠ
+0ìGê:WI6»®Jm4Íi°©® 9ã
+=ò+­60øoÁñi"K+y÷’!Êù„` =ÂŒ÷9=ëº;÷2­j¤m.iõíçÿ  çŠSÖ’½s¨(¢Š (¢Š *[k[›Û¸í,à–âyX$qD¥™Éì äšŠ½áG<-à?_k#¶¾šS †ĞÚ@%(IùÏ,0H ~&¼ìß[ƒ©ˆÃÒug¤Víì—¦·~I™V›„¢®û‹à¿Ä¹mÀğÓ #"9."Wÿ ¾Kf¸ıWHÕ4=MôíbÂâÆî>ZĞ«c×Ü{+ÓføÏãüp²»º‡Ckˆ`·Òæ·U7*qæG$órÊ >µÚ~ÓVö)à­P*Ÿo]GìğâxÚ6,¾ã*§Ûñ¯€Áqns†Ì°˜â4±*éC›šé$Ûí¯Ï]çÓÆÕHÆ¬W½Û¡âğWŠ<],‰áíkÅ‹‰%$h}±>İjoxÅş.5ıkkw;VáYd>…”±Å}âëÉ¾şÌ¡tê)6ÑJT\LFùH=HË}¥u›¿‰ï´ŸÌ5–W±¸™Ô–6PÈÍÃ'ŸöAë^mO3gS6§B
+ÏwíÛ™}Ÿ•º¥İóšÔQ\‰ÛÌùjº]áÿ <E¦CEğİõİ«6Õ™T*±ö,F~£ŠĞø}†t_Š³Áã¶´şÏÓÌsµ,†XÉU;GŞ$5ô¿Ã¯ˆ:OÄ;MBïC°¸¶Óì.–ÒB†ÀÛ‚¸¼àåÒ½3ã|fM,6ŒI_‘)ü)ZÍÉúèºã1ò£ğFıoÓSã‹‹y­/&´¹ŒÇ424R!ê¬§¡º}áŸ<M§­ş‘áùä´a”¸™–qê¥ÈÜ=Åe\Éd¿õY5Q#Ø®¹9¸XÆXÄ.p¹ÆkÔ¾!şĞê>ƒGøjÚ¦•xÓ–ê{DÉTü±òÀp:pëç9ÆqáieXu)UIÊr¿$4O[;ëwò·Vk[U({(İ¿¹sâ?ø»Âq,Úö‡qk¢àbH‰ôŞ¤€~¸®£áŸÀÿ üUÑoµ?ßiğÙ\iô²#(#j7a^ßàkOÅ_³òIãÂ“=İ¬ë<Ò O:»l¬ àg>À×Î^Ñ¾-ëşš‡mâ¯±¬ \6‹u$(dÚ1»k¶Ü~¬8S‰ñY³ÅaqQŒkP—+qmÂ[ê¯¶Ï¯êqÔÆV)Æ2Œ'µzÇó_™êßğÇŸè3áü	›ÿ Qÿ yñ7şƒ>ÿ À‰¿øÕzŸìÃá_‰º=×ˆõ/‰(fu‚ŞÎßZ¼’a™ÕYˆÀ3^%â¯şÓ:÷Ä-Y´¶ø‡cgu¨Ï-­µµì±G%ÎÅUY h^}B¯UÉÇ™,Ó0©‰ë×-µ²³¿EïwŸ²7Ä›:âömcÃ&8#iX-ÄÙÂ‚N?uí^EàO	j_<q¦øcEÚ'¾õ®	XcsHØì£óàw®ÂçÀÿ ´°³•®åø‘äc'™¨ÌWn9Èó:c5í±¿„l-ü®xÎ8ÄúƒÌtØp#\€Üãs2äú(­}´á)4ıú¹#	ƒ«^µXTjÊ<½ï«õùñ+á«ü;øeàÄ×­µİ^â4‘­ìàd1lhw–n zcÔW]à¯Ùâ'Š…ïö¬ÂæÛfÁª[±ûFìçfÃÛ9õé_>èÑì¼Y©ÚÍâ‹Ş!ÔPXˆo] ’ø·˜6FÄ/“
+¨ 6
+ ıêô?‚Wÿ ®õİ]>/éÑ[Ùyµ‹$6ñüûğ|¦$ñµ“ÅÏÙİ=­>¿â>¤ªQ”y–íÙ6ï¼cÕt>hµıœ|~~ë^-ÕÖßC‹JIå{MA]f™"MåĞ(#2{Vƒ>üEñ÷…"ñ†4›[:WxÖI/cˆ–Sƒò±ÏZõˆ×_µµşâ»BÅ-ü*ßjIe†Ecds¸>ìÇ<gõ±û/xCÄÚ—‚¥şØºñŸ†¦_;KºÓu—¶Œ8vYPÅÉÁÇÔU}b¢ƒ›héyÆ.x™Îî¬–¶Mm£Nı}.pšGì£ñVûVKmRßMÒmŠ’×r],áHˆwş”ígöPø§aª}*-3X·ØíQÜ­¸Üs•Ù!Ïôæ»oˆ¿¿i;Oˆ×éğÿ Ç*½ğì›e´gÖ•Zš&ŞÀ¤àù¨|	ğËöœ¼øƒ¦Çãox§OĞ_2öEÖQÙÑyòÔ#–8\öšŸ¬T·720YÎ-ÃÛıb•­~[;ı×½ü'ñWÀO‰¾ğç‰¼C£Ú[é¶aLÒ¥ôrÁFXS|ğ3Ç¼.Ş ğÜzcY-ÃÛsuå6õ 6>a^áûTøwÆiàÈíü1±ÿ ¼­röãY’dq½DqyRHI°Ä×o<»û=ÜÜØ~Æ>+¼³¸’˜$Ô¥ŠhÎmÔ†±Uõ™û.}/sOíÜSË¾´œyœ’Ûdû«ï×})ÿ †Oø·ÿ <´/üö¿ğÉÿ ÿ ç–…ÿ ÿ ı…s	¾&|RÕ¾.x:ÛSø‘âKËK­NÙ'¶šñ™%Fq•aÜ^µû[øÛÆşø“á«x¿XÑ-çÓf–Xì.BF€	©Ç:µÔ”tÔº¸ÜÚ*Êšm>Wm>gãoÙ¿ÄøIyãmw_ÓwY¬fkÜ‚ò,`	8ïœW!áƒŸ<gáÈõïxfKı>GhÒu¸‰*pÃàğ}«Ö¼kñÄºCi>#ñïˆ5]=İ]í.îËÆåNFG|kìO€wv±«İê> “@´ŠKÓ.«PÖƒÍ?¼•—#ÜíW:µiCšV½ÎŒn;—a=¥gMÉ%£µŸ’ÔùÜ~Î_Ïü!Rÿ àe¿ÿ ®ÿ Oıœ¾*iÍ½İ™Ô|¡'öü¶İœló7yyœçê~¿ğ¿Œ5Á£x_öñ&­¨4m(¶µ–Åœªıã³tØxMµıgáç‹¼5Œ/[WÓuÍ&vî8Şh_b¼r2ªª1Q*ñ+šx¹µĞğq\GjÏ•Y«û²Z7oµÓÓ^ÇË?¼ñ+Àì¼Kâ«û·»;QgÃI4R:3a·o8cÏ­qzgÂŠ>+Ğ`×ôo_êJ^ˆŞ0² Hã,PEz?íY:iíàï¿Œõm~ùUï¯~Ñt­UB#ùH RÅ¤#Ğd
+öO‡ÿ ğšØKI?„?ğ“ı…¾ÁçöïûSg>gË÷wu­V"P¤§e¹é,â¾OhóNVÕ8«ko>›ö<oÅ?²§Š4oéÚ¾…ww®j—B·\v©[B]‹™0v=óPø÷öVñ‡†-ldğµÅÇ‹d¸‘–hííVßìêCÒäñøWÒş;?GÁ½şe²o´şÑóÄ>^ß/÷äo!>ö1Â¬|P?EÇ†¿áY%™Œê+ı°nDG¼go˜zıï»Íb±•tÔñèñ&aÍÔ‹Ö[ùwì¿•­úŸ ø§Á^*ğMõ½ŸŠô[*{˜Ì°Ç9R]AÁ#i=È¬ú3öÎ$|Xğ’ôK¸ãşÛ-|ç^
+¤™÷yN2XÜ$+ÍY¾Ş¬(¢ŠØôB¬Xi÷º¦¥Ÿ§ZËuu;Š—s9ô«×µüÖü#áøu»ÿ êºVvÍPMy*Ææ<1`¤öÎ3jğø“6©”åÕq”i:’­}[v[&ì·vW·Şa‰ªéSsJçeà¯øwàï„§ñ/íbÔ<¼I;Ënü²ˆuw=	ƒ¾ã¿ˆ7ÿ ü{³sÚèÖ-¶ÂÉÏ*›g|q½°3€ :sì;Ò~üCñz½ñ’!ÖŞÛˆ ã’,{±ç·Jó¯ø_á—‡¼)ß…<u·|×	Ùâ0„¶gŒÎ¿.àüN¾`±ù«©<e]éTP¦ıØ¶¬¬´¾‰l·mùIÂu}¥fÜŸ“²=söhøñÑJÖBG÷Nàş<*—ìÕk¯·åkèÂŸR"çùŠ¥á¿x/âÁóà/ëPé7âİmÌ×#l Ç*;|»†ÕÊ“Øö54ş=øğgátš†|Cmâ-qËÉvÎ²'a$…	TEÀã9ã9¯›–†É+p·°›Ä:ÊŞëåpº|ÜÖå¶‹¯_&`Ô¡FXfŸ5Ï
+ñtÑ]|QñT±`ÄÚ½ÎßOõ„0kèÙ ğ^° ?´Sÿ \…|Çh’­¹{‡/4Œd‘ÏVbrOæM}	ğÅğï„uXµÿ iºcÉ~‹w:ÆY|°23Û5ú/ˆX‘ág…¥)GÙ-mòÙl“}G°œ½t<;[ÿ ‘ãÄ?ö»ÿ ÑÏ^«ğ£àäş"šxİ¡Ñ”‡†ÙÆ×¼÷>‘ûÿ n9®Ã7ÏÇµj“ÙÉ£É¯Í,²ÎÃÉhŒÎÁ‰<m<zú#Æ~$øyãÉ ‹:5¼ß-Ãi÷°¬’¦?Õ–lí_\c=:Wq?…Âå¸(J>Òæ¨£)8+E4”S|ÛõMt³ÕgŠÄÎ8S‚µÖı6øÙñÛR´¸ø{àk„’İ‡‘©j6ç÷aˆà0Ì8ÇÊ;×à/‹¾<øa \é>¸Ó"‚æa<¿l´ó‰`¡x;† âºø>ü	µƒË‡âÄ ÿ ?–ßüM`ü7ø)ãŠ¾¼Ö¼+>’¶¶×&Õìí
+ *6FW±ÁÊ(`¥„ÀFk–ÎRœ%&úûÉ_m–ÊËÍâ¾£<£ˆøt¿2i_¡ô‡‡¾8x‚ËöS¿ñ×ŠÌëËksqnmíDPgqH]Üå¶“õ§|	øÙâ?ü6ÕµO´ê]4p5¨‰•€a»“¸šâÿ i]Ãá÷ìÓá¿[Ì­yyqmfÛxß	æJÃØ¸OûèV—ì£áëMká'ˆFUÔZ1ß1ŸÎ½ÉSªèÎ¤m~m=.|L
+X¸µôòW¶GÉûRülÔô¹`–ÿ ÃÂ)Ñ£`4ÀÒ?Çèk{ö^Ğ<Z<M«İêGJÒ µ‚fX§ºeÀg]À‹Ï#©_J†_Ù+â–¡\]İ]øpÅkÌå/$$ª‚ÇÊëZ¿t‹ú—Ãï>é¾ºÓ^ıÃ¾³4«("d œmÁ_Ö»±
+ÔÕÚæÓsÜ®òõ©õ9E'e+;oòß{|Îwã7¼wâcÇ¶:^±£é>qo¢Ü]ÚD üÓãn]ºgøB
+ôÙïãµÿ ‰·ú<K.±`tç–#µ†2’,‰óeIùIjOÿ Âáğ—†mõÿ ‰ŞğEç†-oíŞî×KšFŸ
+€J
+`±ÈéRü$ø£àüV±ğ¶“ğ¿şë«È¦Û~€ˆ\®ço­r¹Vtök›ºz#†¢¡S/qT£×4Zvµûß«·rÇÄø²…^;×<Gñ^³³æî×MÑíìlÄOm#ùPFîÈdËdäƒ½9ª¿øe=÷|m¤Ek%Èòt™àH#X± <lİÉ<úÖí/ğçÆºÏ…ô‹.ßÂú"¾«{u-éóîJF~QÌ ¹n¬rHé[Ÿ³g‡`Ô¿g.Ò%–ãíW{#cµ\†ùA=#­eşÑõVî¹®¾ã“Ÿ²ÇR/y­­¦İ;kÕù˜#âÏÂPGí	ñŸõñò5)ø±ğ„ù8?ˆ_÷ş/şF®¨i?°?âĞx,{ÂBßübìŸŒØÿ ’Aà¿ü([ÿ ŒVW¯Ûñù—Â÷ÿ É¡ÿ ÈÆéíìí}ªi|u«[^›UXµ+ˆŞxe‘:…‰[•9q\×Áoşøkğ®óÁş*ğæ±©¥ÍÜ’ÿ ¡EÉ*HŠ¥]×û¤wô¿ÚWBM;öSšîş,õ.4ñ-¼2oD”Ê¥Ñ¸› g¼¿öxø$Ş9¼³ñÆ£¨ÚN¾hä±*ÆYdU×Ÿº,¤÷ù}ë»	Ìğòu÷¿OÀõ°S+©,C|Š^ëd¬LÓ>%|Ò|Q¡Åÿ 
+YğıÍÍìpXŞ\h,rçå!„™uã‘]ÄŸ‰Ÿ
+SÆú>‘âO…÷ş-Ö.­d’ÌE¦[]:F­ó(28#‘œJäõ¿kÿ ÿ h-#_ğî™7ƒ|'©­Ì†äï–å
+IpÊ¡HlDõV®Göœx'ãï5=I{K).
+|-À%$~5Ï^s‡£¾¯~~§6ˆ¥Ê\î-ÛšW]R¾êúiæUø­ñ;àëxXğ¶“ğcPğß‰®-×ì³İhö¶æXå’BÀ ê|=â{Å²fàßxSK¶†xÎâêò÷`}’9ÄIË9SÔ÷ÉÏJ±û@|.Ò¼QğŞÓâÇ…õ[E¶Ó´ç¹Ÿx-ö«b R½I#>cé[şøK®_şÇ0èÚV©»ªØ›«;Ä–HÖ3¬¨K(ÜCƒõ­YTxx¸»Júß[Î¾`©Ë™ßŸU''f–»ôJÏş	ÑØx’M"øİèÿ ü3er šÚş8_¨ÊÛg¹ß jÿ |1¯ø¾÷\ğöƒ¨ÛxƒRmH[ZêN¦Ù™2‡|XqµœAã55/‚¾1¸ı˜áğUŸ‰V/¤FÚ±º˜Ë6ö>hùN:{t¦øûàŸŒµÿ „~ğÿ †|Lº~·a%»_ŞµÔÑ	Õ!+ ƒse°yëŞ¸RÅ^ÜÑŞÛ~;dj`àä½çfß3Ñjû_cÃÿ hK¯
+éÑô­áFƒáBîìÜÿ hi†"ÍjCÆÛcSÉ‘qò×­h×Ş)Ò¿c+?	øVâm;Åéb¿e¸HÂ£4şfwœccÔwÅc~Ôß
+¯gğM‡Œôû«D±ğõ¼Ï}Å„’ù®ÌAÎH­†ÿ ¼rñ¦«ãoŠ:µÆ5„ogg¥ŞËnb$)ØxÀş•Õ'^XhÚII7ø¥:øJ™u7)é7gvÛ]:ôé{XÜøâ/ˆ·ßü?¦øWÏÅPËkı¥y#Ä¢TXˆ›æ`AËàğáW>*x‹ÆºÍÏ†ÃZãKÛRYu`òGmÆPd6{ğ1_#øãÇ~$‹âˆ,<ñÄ‹¡ÙŞ=­£¾ f2ùY÷ °b=±]ÿ ÀNoøêëÂ¾9ñßŠÅÄ>n,:«ÀÔüñ$©Ü?İ5ŒPö—·ÙšO$T(,SŠåå¶¶—uå}Bÿ íq?öÏ‹ü-âd+d–ÓØŸ0€æBâOº;mkçšöŸÚá‹|-£®|@¼ñ‹u©JšeÜòÛ…†âx$/Ë‘Ö¼Z½Œ½MQJm7ä}>@©¬)^*öğáEWqì…6Hã•vÈ‡¡§Q@}ŠÓşx'åJ¶¶ÈÛ’w¦¢—**ì6DISdˆ}¨ã´¶ˆæ8U~‚¦¢‹ ²5toë~ GFÓ¥»±ù“l múOÏ$QÊ •B+[Hñµ ‹‘£êSYı¦?.o/:ş#ƒÉäsÍfQ¯R#ÏÌù­nŸ­ÏTĞ<_àM?à”Ş»ÓÔ2Fğ}Ÿ>|ŒNÙ<ÌqŒ§#W’}Š×¼(OsŠÜ±ğÏˆu-1õ?D¿º´LîšK/yïøVWz˜Â*ö1¡B•9O‘İ·w­íşDb´ÿ 	ùV®«­iÖf×H×µ]2mí•ä+c$#š«E7ôhŞTá%i+ º’ûQ¾KÍ[UÔ5)£]©%íËÎÊ=rp*å–¯¯iI"èºî«¥y¸ó…ÔoÇMÛHÎ3ŞªÆ•AèXÖ¿D"øğlÚ¤à/”Òz½XV©
+)&´g‹›f˜l²1…ZwR¾‰+inş§çü'ñÄÑ<SxïÅ2FêU‘õ9È`F#w"“Mñ‹4-)tİÅšæ‘j¹†ÂöH± !Hàsí_ Q|ø)6|¯i/»]Î?'¯)ñGÀÿ †Úí7¤x&]MŸÃ·‹.™)d¸D–İÆÖ5„q4^œ§•‡âLº«”=“JÍ½#ÓÉ(j^"ñ†µblu¿øƒT³,®Ö×·òÍ9«1 ³»¾Ó¯¡¾Ó®îl®¡mñ\[Èc’6õVƒ^åûF|ğ§Âèš†gÕekë¹-¥7³¬quÆ`äúo?ÓÀo¨é¿h[0|ÉŞVìıïZ¿¬Ò„SŠÑu3ü„*Óƒp›kD–ÖNëæ|3ãoˆš¦q§ê_¼Uygp†)­®59^9PŒe-‚ã¢±ñOŒ42=;Dñ¿¥Z!, ±¾’Éêv©&½SömøI |\MjãÄÒê1[ØÅoåıŠa/&òrJœğµ™û@|?ğÇÃ‰šw†|3-ü±Í¦‹Ùšöa#2º€Q„«R£ÍìÒ;!‹À<SÀFööåVÚÿ }Ÿc…ÿ „ãâAéñ+Åßø5Ÿÿ Š£ş‰ôR|]ÿ ƒYÿ øª÷¿Ù{á§ü{áïÜx»ÃÖú¤¶—PÇJò.ÅhÉ maŞ½ŞOÙ÷à„/¶_é¨qœ5Ä£ùÉYT­Fœœ\O/eØ:òÃÎ…Ü{F=¯úŸŸz®©â=|Ãÿ 	‰õ½a!mÑ¦¡{$ê‡Ô$ïTæ„Nä
+;+?JûïÆ>iµíRËÁQ\Zé×H&˜ít‰™O/ WÂvz>»u§Arº¨Ë"+†[9H Œä¼ŠÖ…ZuQV=<£5Âc¡/cTº;-ıMÖ<E¢éƒOĞ|K­iV»Ì†Ù!BÇ©Ú¬N>ÕZê}GPÔÿ ´5WPÔîöÄ÷×3…æ$ãÚ¾œı™>ø_Åšˆ¥ñ×ƒÅÜ¶÷0­¹¿†XŠ©B[oİÈÈÌşÒÿ 4Ÿ
+|FĞôïxF[[)ôçšqco,ªd2yÁÀ¤ªÓUy-©Íp_xEM}­-²{î|ÿ -œS6\Éî‡ ~]*é¾Õö"G¯jñFŠ#úUU  6 «húÅ´=Î‘¨ÁrÒKk"*ıI\
+öŸÙ×á‡€ş(zÃÅP…‰Šh~ËtbäŒË×ı¡ZÔpŒ\¤´=v#†¡*õUâ·²OÈğß¶ë_ô1ëŸø0›ÿ Š£íº×ıšçş&ÿ â«İ?hßƒ~ø[káíGÂË|lïå–ÚãíSy»d
+0p1ò¬Ùûá§‡¾(ü@Ô´OËµ¶œnÙJ#mşj'$©ãk5*NÑ-Hc°SÁ¼r¸¼•ôvØòY¦Ô®`h.µ½ZâûÑMy+£wåKj9¢’|‰//
+‘´¯øÇ¦3_tÃ ü,ÿ Ÿïàjñº?á~Ï÷‰¿ğ5?øİeõª[ğ<ÅÅ9RVIÿ à?ğO…á‚;xDq.Õ©ì¡—?Å}Ëÿ ƒğ³ş¼Mÿ ©ÿ ÆëÊ¿h~øYğ¶ßÄ~¸Öe»—R†Ì­åÂÈ›]\“€ƒŸ”V‘ÅÒ“QG^‰ğŠ±¡N÷“²÷àŸ3¥”I(“tŒG#s“Î¬ÑEu$–ÇĞÆ*;QLaEPEPEPG8 u¢Š úÁŞ,ğ³ü=ÓVÆÉ--’9b–e¡eP œõÉÈëšùßÅWÖ:—µ]CLeœ÷O$C~Rzã¶y?d`g$ÑYB’ƒm~/†¤êFMóÂŠ(­O@t_ë“ıáüëôóÅÿ òIµßû\è†¯Ì8¿×'ûÃù×éç‹ÿ ä’ë¿ö¸ÿ Ñ^v?xÿ ]…ã/êÿ 8Ÿ1şÂ°$ZwŒs¹ÒÀ±'=¦¯KñEÚÛ~ß^‰œ/Ú|7{Ïs½›øåyÇì3ÿ  ¯ÿ ×;å5küwğÿ ußÚÃÁó|;H¹¥è’j™æXÔ*Üí9İÃ¼½Á5ÏR)Ökm?CÎÇSŒóŠĞ“QN/W²÷ÿ 3£ı°</©ëÿ aÔ´Ëu˜h·Âşëç
+R*Dvë‚êp9Å{Ïü’ù¿ìôMx‡Ïí-ão†ÚÇ„/>xRŞ=NÑ­d¹ƒ[å7YTÿ "kŞ%°ºI¦_´› ]Üoò¶ã?^õŒ¢¢û."N•	I>Y7£OGË½¼Ñáß±÷ƒ5ü›UÖ,şÌÚÔ±]ÛêÅíÄ+±ø'Ë5àßµMçÛ?jBÙz]¤ôÈi?öq^ÿ ákßÚ3Â4o
+Xü&ğäÍ¦iğÙ%Ìş!\9î(¾3€ß|£ñKÃ´/‰·z‡Äñj<A¬¯öƒ‹i–DòòcP»~ê›@ôº°şõnf}FI[5©‰©8İŞÉ4ßN‰GşÅÿ ò*ø·ş¿ ÿ ÑF¼ãöÏ·ãö‚ĞÖL<>‡ƒùyš½ö/ÿ ‘WÅ¿õışŠ5çß¶Güœ.‡ÿ bòéLÔí|SOúĞ(¤øiùÿ é1>³ñ’“ğÄ
+OöÈşİš¼ãÁ?´GÁ}'á†ôİGÇútvÚU¬3DË)(ë
+†	Øƒ^“âÿ ù!z÷ı€®?ô™«óÿ Â>&ø£ÁZn½¢xBkİ>îğ\,ğ¨p8ÎÁƒÔViF¢|ÎÇ“åøle‹S‘)+;¥º}ÏĞ/üJğ?ÄHï_Á~!¶ÕÖÈ¢ÜÇ–_;s¹G]§§¥AãOŠß¾_ZZxÏÄöºD×hÒ@“,„Èª@$mSĞ‘^Wû,ü:ñÃû?ÇâÍM-¯d¶hÉù@ßq1¸uõ¬/Ú—áoüã¿ßxOÃ’ê–Ö–SÅ;¤± Fi¨Ã°Î@=*}”}§%ôîr¬»	ı¢ğ®¯îÿ šëµ÷Û}	ş9üyøOâŸÙ÷Äº†|oc}ªİÁ[ÛD²†‰2€t¼gödñ8ğïí¥Å<â+}Z4éÌÇÿ ¢øqş,øIã¿h±êş+ğÄšm”“t™æ‰Á‚BáXŠ*ë>|*ğ÷Å}gWÒu]wQÓ/,¡æh¨|Ä,U‰Ü2
+¶ÎŸŞ®øÒ…:RÖéŸkKƒÁeµ¢ªsS•îÕ¶];;pøçÀ~ø‹áa xªÅî¬Öd¸@’4O‹œ2²AÁ#èMxGÁïh¾ı¶üsáOÁ,:}–‰–’Êda¼Àçæ<X×ñ×Á¿şøwEÕtŒ^<½°¹¸k9…Î À@Û7G‚§¡
+ãŸAIû!Şjš§Ç¯êºŞ«yª_Üh¿½»¼”Ë#íš%cÉÀ ~ËIR”“¼OÃ`jÒËkÖ…njN/MV·¶g½~Ñ^:ñ'Ã¿‚“xÂ³ÛÁ¨­í´
+÷‰—k¾å5ò‡ü5/Ç\ÈoCÿ ÁRñUôoíƒÿ &Õ?ı…,¿ôm|.:
+ÓF‹rG£ÂÙn„s­MIó=şG®ÃRüuÿ  Ş‡ÿ ‚´ÿ â«˜ñÏÆO‰Ÿ|;ƒâíKMŸOŠå.Â[Y,-½ wÓæ<WEv,54î‘õòl)©Â’MlìQEt˜QE QE QE QE QE QE QE è¿×'ûÃù×éç‹ÿ ä’ë¿ö¸ÿ Ñ_˜q®O÷‡ó¯ÓÏÿ É%×ìqÿ ¢¼ì~ñş»Æ_Õşq>gı†äâßúçaü¦­ïîş~Ô>×¬´Ö§ºğÜ¶)j÷^íH;‚·uïX?°×ü‚¼[ÿ \ì?”ÕgöƒÒÆµûf|.Ò™w%Äq«Œ»Üß¢šÆi:í=­úx˜SwV5UãÊïè Ÿèv~&øÉñ¿Áş¾ñ7ˆ>éöºmŒ~lóÄåF@*ÆIäÅ{sêm`À7-¡¹ò·q›¶ç†kÆkİDØ~ËZ­º1şòÖÔcŞPçôC^¯?ü’ùìôMs4œS±óµá	áéÖPQnMi}’vûQáO‹ügàÍ;ÅÁm;PˆMÉâ…F+’9SG ×Ê_>"jÿ ş+GXğäZÖ“núD¶Ñ]ı©KÇ3–mÛW¹#§lçšûöX¼ûWì›á0NLÍ	ÿ €Îøı¯Š~'Zı‡ã×-1€šåÑQìÎXèU×„Šö­[cêøv•˜Ö¦ “…ìÕûÛ[·ÒÇÓ±üŠ¾-ÿ ¯è?ôQ¯>ı²?äát?û“ÿ Jf¯Aı‹ÿ äUñoıAÿ ¢y÷í‘ÿ '¡ÿ Ø¼ŸúS5Rÿ zş»‡ü”“ùÿ é1>¶ñwüÍwşÀWúNÕË~ÍŸòj
+àÇ‰ÿ Ñ¯]O‹¿ä†k¿ö¸ÿ Òv®[ölÿ “TğWıxŸıõÃö_©ò?ó?ñ¯ı&GœøöÈÑ¼=ãMcÃÍğÿ X¹}2ök'š;¨‚Ècr¥€<€qšİøaûPéŸ>&Yx:ÛÁZ¦›%ÔrÈ.n.#t_-à…çœb¾;ñ÷ü–Ÿÿ Øz÷ÿ Gµzì½ÿ '7¢×½ßşˆjîxX{.#ì«ğæ
+	b#Ì¡}ŞöL÷/Û@‘ğ;EÇ×àùjùÛà‹ağoÇÍP¼¸X,n™¬.¤vÚª’ŒcØs_D~Ú?òC´OûÁÿ ¢f¯‹pÃtïZ`ãÍIÅõ:8f„qT¨Ïi9/¾ÇêŒ<áÏøN_xÃíº|¬’”ÈU”åYYH ƒÜW‚|"ğæ‹àÿ ÛÇ^ğõ›ÚéÖZ$(Fæ?3O,j¿ÃŸÙ«I×~hŞ­ãXŞ_Y¥Ì–Ö:³E{Æå
+¸8ùH¬ÙËOÓtŸÛâ“¥j¡mai%šİê3ùóJc$bÏßæ°ÉÊ§-,|İ
+jUuœ”bî¬Ò¿4U÷k¡ßşØ?òmSÿ ØRËÿ F×Âã ¯º?lù6©ÿ ì)eÿ £káqĞW^àgÓğoû”¿Äÿ Ah¢Šï>´(¢Š (¢Š (¢Š (¢Š (¢Š –ÖÖâöö+;Hyæp‘ÅË;€
+é5ï‡,ğæ5=SMUµÈñJ²ydôÜOLôª¾×-ü7ã½;Y»‰¥‚	˜ª2ÁYJ’=Æs^¿ãÏ‰ºğö¥_®¡u}	…cHØÁêÏ1N¹¬§9)$–‡›ŠÄâ)×„)Âñ{¿ŸámÏ¢ôV§¤QV>Áyı·ÿ e—ì¬ÅûÍÃ¨İÓ<(JàCúäÿ x:ıMÔ4èõ	\éÈñÇyhöîéÊ
+’3Æy¯Ër85ÔÉñSâÓHJ|PñJ/e[æÀ®LU	U·/Cæøƒ&«™{7JIrß{õ·ùtüø+¡ü´ÔàÑõ}GQşĞ‡7¢1°Flûç9ö®_WÑm¼cûthÚ…ı³/ƒtQ-ô9%üÛ†”Fƒç±_Zøé¾(ü\d*ß<Y‚0q~â|Eñ·Ã{ıSRğ­_ê~Ùs}ºiJ’A%ùÎXä÷®oªÕ»“z?ú·s©ˆU*-}é-~^GÙ¿´Gƒ§øoáo†ÖZÍ¾™q{y6¤eš3 1ÛÃ‚6‚Y×šõ=^%±ø{}Ê
+Á§È…Ï,DgÛ¥~uÛü`ø¤Ÿÿ á`]x ]ëÉjöPÉqn11¢D U ğ3ëš½âoŸ<[á›¯êŞ-‚->íWee"
+ ÁÆ28¨xJ¶HæŸãœ)Qæ,uù·¯MtHú{ö7Ô!»ı™á³Y•¥´¿6Lò¡¶È¼{†¯Ÿi
+¿†?híRé®£™5è“U‰H1õL­êwDNGc\ƒ¼qã?‡·qà¯Ï¥K*…•UHå¦èÜ8ÉÁÆFj/øÏÆ>?ñ$:ïu”Ôï`¶‘H¶ñÁ¶=Å±ˆÀ–''k¦'
+Üıîá2zølÎx¸µÉ;ß¾¶ıQõ?ì`@ğ¯‹rGü~Áÿ ¢zÅOÙûÃß¼ugâmW_Õ,fµ²[†ĞDQ”Hï“¹IÎ\ÀWÃº|oá+;‹o	x«PÑ#¸q$ÂÑ”yŒ9µiÿ ÂäøÏÿ EKÄ÷Úñ5põW83“ã¥3QE½·¾Év}Ğ?ˆ“Ùé_üQ%Äë¼-Ğ.íĞûôüë—ı›A²¯‚†9û	ÿ Ñ¯_ø‡Ç¿ü[¤'Äş=ÖõM9˜;ÚM0¹#pP7`Œàæ»~Ğ¿<àı?Âş»ÑcÓl#1B·c¸·-¼g’{VOQBİO:|+ŠÒŒ““’}´I¯Ôõ~ÈŞ1Öü}¯ëĞx«BŠKR¸½7bÈ²HX)ÀÆF{WOğƒölñ7Ã¯‹V-ÔüE¤Ş[ÛE2m£;Œ¨å†03šñ_øjÏ_óÿ áÏüötÃV|rÿ Ÿÿ à³ÿ ³«åÄòòt;'„Ï§AáÛ+Véµ­Øöÿ ÛJHÇÁ=
+#"‡m~ªO'Íšù£À¼kñ6™¼1em-­´Éos4×)•¸g8<¶<
+Äñ·üwñ/Z¶Ô|o®ı´Z¶°Ä°Áìdªç$äñÖ»„ßµƒú.©eaáh5“¨N“––ìÁåíM¸áNkZP©J“²Ôô08,n[–ºtR•[Şİ5-‘÷œòÙxGÀ’L@[-&À¹íˆá?Ékã¿ØÂêkÿ Œ¾#Ôîg¼Òä¹ì÷(ÇõjÂø‘ûSøçâ‚.ü'aá«Z_Æ`¼¸K–¸™â?y•P¡‡àœ8ë^ğßÇÚçÂïCâ/ÇÒ¤Mo5µÆDsÆØÊ’9€AïÒ±¥‡Ÿ$®µg•–ä¨`±0ª­:ŠË_ŸâÏ¼ş7ü8Ô>)ü'›Âšf£mar×p\¬×(ÌŸ»}Ä¼ò+çaûx×ò7h÷êoğ©ŸöÚñl'Ã.œ“ª·'şıSá¶¼Kÿ DÆÇÿ ¯ÿ Æª)ÇMZ(åÀasÜ7J„W¾¼¯õ#ÿ †4ñ¯ıÚıú›ü+ø™û<ø‡á[Å¿ˆt«Ëqq·•l’,ç üÃâ»_øm¯ÿ Ñ1±ÿ Á«ÿ ñªáş+şÑÚßÅ‡ÿ ğ‰İø*ÛIŒİÃtnc¾iˆòÉ8ÚPuÏ­o
+˜eÌ´=\%lù×‡·Šä¾ºGo¼ò(ì(¯@û ¢Š( ¢Š( £­§¥iÍwp` ä“Ğ
+MØ™IE]Úi·N!?…nÁá`5ÔÑByd	üëJÃ}×’aßa¢´Q¾P7ÈİºıÔ'Ş½}¶ÓÃ‘$Åá³Pu˜ş,ÕŒªœ•«ri'o%úùùns‰á(.~[KË9ßû±\!?–k/Rğ½õƒ•–Î¤ôX¬4Y“r#¹ÂÛïÊ®ÿ gØCfÑØ_˜Pı‹Röwú“ÿ iNpj=«FYœ^Ïæ¿ËüxdF*Tæ˜AA¯TK?
+jW’æ;Ù.E£ÙJÀ42ğÄdòğG#i"ğµ-ÄÑNBC}h«&t,Z½¤­ı~^g–×Qá/jºI¸Ñí5›[]Cj?“Î×uöóNî	ö®zîÙín7kSÂ> _xÊÃ^kï~É'˜ s´1Á{œƒê+tÎŠ‰JKù~[ù‘x–;ˆ|Iqí‚ØİÆB\B«±|À0Ì°=p8ç+&¶<Qâ¿x²÷^½DI®ŸqDèƒ
+>€Xô2¡~UÍ¸QEŠ
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€‹º@¾¦ºuµ/oi¤DJ›²^vDKÔ~'ŠçlÀ7±ƒë]Æ•Ÿâ¹F2c²‰T¼ÌOò¬ª³´ù]û&ÿ ÈÒ7ö>•%ş¬ƒì1â(í€Í=úÖxÆÿ ÄzÀY¶ÛÛ#‚>G¥`üHÔšOÿ dFÿ ¸ÓãXööóncõäÂ±4›Ãot’g¡¬iZNçF]„„¡í^²‡õÕŸGøJÆÚT@Às]µæ…dÖDlR1ÜW‘xcÄj°ÆÉ&G±®ò?<¶áL€ñQR2¾‡ƒÃWö¼ÑgüMğSè÷­â]#}ª(x+ƒ•‘}8ÿ 9­m+âñ?‡U5)Õu+d]ÏœoÇGZíõ+„¸…Ã€ÊÀ‚ Šó?Àº,zÆ³st_ì0Ä²ARtf' üt>¿VÚÆTÔ««òõëıw(øÁ!{¨îá ,è²qî®[ô±­_ıºûj(T\"¨è à
+š{};Bğe×ˆuy6Åâ8ÀËJı€œz=+w5NTÄSÂQö•]’0ph­+˜ãŸF³Ô£´Õn¢Y„3¹A8#Ğæ³jã%%ttQ­ĞU ôaEU…Q@Q@Q@Q@Q@Q@Q@Q@Q@Q@Q@Q@[¶Ë„oC]ÖpÖ¾7Ñn¤Àµ¿Cc#‚A–LŸ|‘øW	ÌÊ=ë¢ñû.›¦xY$Ù/\‹¶ëªøË‘Ï³W=v’G)]¨÷Ğå~!#[|Zñ,\âì¶[®~ÖE¼Ø`j×ŒuKÍ_Ä1êÚ„+Æ‰m/Aí<`®OûÊ÷Á¬¸Ú¸è·âúàjN”T%º:½/VšÍÃ#¾•İi'"î“õ¯(‚R1ƒZ0Ü:€Qˆ5ßtÖ§³*p¬µ=~Mr7·æAÒ²l/¾Ûq¬9-QOÔ¿È×ŸFà¦Ó)Åz?„|;z< ³<Mæê’	@#‘ä.~¹côÅg9EhyØúTğÔoWd¾ûşHçt¯]_Ş¼Á‰NY@=I§½¾âJÏXÔ…ÙÑô‰;k	ÔÆ“Î¤;2àşx ôªŞ'¾²Öõˆü=kz ÓıÙZH]Ç&áH]&Ğ3ÔsÖºY¼;lÖL\Käì  ’Àdã©èI5‹~ÙÙü'ÉT¾iUFK÷1võ’éé½ŞC^ÕßU¿yN ì`è è=«ƒÖŠîI%d}D ¡ì¡Y¾ê“ô©¦éË*‰ÆTıÕ=ıÍl*ª®ÕP£ĞRlÎu’vG&Ai+¨¸´‚å
+Èƒ=˜uÎİ[½µÉ‰¹Ç úŠiÜ¨TR!¢Š)šQ@Q@Q@Q@Q@uz'‚/5+tº¼—ì0Ê¹v¸íT<%¦Ç©ø¢¦PÑF®§¾:Ïë••Iµ¢<ìn*Tß$78÷øy¥˜±åÚ¿÷Ò?,W'®øbûB"IšÙd úØ×®T7v°ßYKip¡£•J°?Î¡Tks–:¤eï;£Ãh©®íÚÒşkWûÑ;!ü*è=Äï¨QE(¢Š r¬ĞÖş§§øJ³
+Ú¥æ…	Çœ‡ïF¯ ~;×=V-o&µ<lA••ZJ¤lÌ1}¬tİWr^_,wÖ“=Ì›mîm˜–B8u8ÁÅmkÿ µı$½´‚]BÁãe÷öàŒìš1Ñ†pHÈã·Jè?á+»}®éÌ¿vV@\}¦ÛëZ×Ú<øLõÈ&¹e†œµoSûvÔ´VüO:tÎ7 zc½Z[•Eê+Úü/yo®j‚kA°¾$›‹dr3Z¾ğwÂÿ _Å®ì1Bí¿N‚M‘·<oÇ;FB:óÅcV¥J1”¶WÓ¸Ö9¤¨©9ÃHö×}ŒŸ‚Ÿ-|Q¾*ñe‹M£!1YÚÈÌ‹tãï;`‚QzpFN{
+Üøİ¯ØépXx;ÁîSW¸
+²iÖçxòN8óêXü¡AéÉ r}wRk/øF¡´ÓçK[Œ$OdT*G”ÆFWGç^ğv¿ïüG©Ù‹ÛØ•g¨Êrò¸ÜyÁl¡ nÇğòÎêûib$ß.¶åÖÚŸšfœ}G%;_o%åÒşÇ’Øü×¬ç?Û—0èñm¶‰)º•IØAŒ§Ş¶µÍ
+æ×FÆÉ.šÚ!ÁBíõç§Ğ`W¢üIñ›áé!R±M©IXùÜ7Ÿéô¯'¾ø­{öuµ¶Ómä‰	gb|É~œíÍ}Æ¬ªĞ…V­t™õ^<58ÓV„v[/_ø;¶ÙÉMÃ!Gj:é<W"æ+˜£Ø³Æ²…ôÜ ãõ®n½8»«­9sE3«‰B@ˆ£ (ŸU4û•¸³^~tXZ·RqÉ4õ
+ÉÖÕq÷äVµ`j·+=ĞD9TÏ©ïMniE{Å
+(¢¬ë
+(¢€
+(¢€
+(¢€
+(¢€
+(¢€:Ü,>-XØßDÑŒzõÊ½D‚ û×¡YÅa¦A$ 	YD†A×'µØ·ˆ,fÒÙõ[y£2Ÿºßjæ©«º<ks©ÍäIHYUK1G$Â¨>¹£G˜ú¥ _Q ?Ê¸ßøÍ/-_OÒKŸ‰'#‡¢OzJ-™RÃÎ¤¬‘Êjw+w­]İ'İ–fqô'Š©EÔ}VVAEP0¢Š( ¢Š(æ›oö›ôˆ÷5Ûé.ğf‘âYt]^Õc¶·s×„4Œ\u
+ª8 çŸjât»m¨Ç!ìj?è’¦§7ˆ-"2X^7šò Ï“!ûÁ½2y¾kš»i®Ç5HÆu9*l×â{Õ£ø^ëLŸRğeõ–ªñí}>ÙTRÁ‘°GËkÈtMào‰…¼R‘h×,D-˜Gá^umqsix—6³ÉÈr²ÆÅY~„V˜ŸXñwˆÑ ´òù³ıš"Åcs•‡ã×Ş¸U&«*×éf»«Şş©şT0pÃÔs”ï+4ÿ «h}7§ø§Ã°@·ú[y¾j´³iĞ°´€g1©8V=öà7qj÷ÅMà¯†±êPD±_^Ë¼PÎ1î]Î
+úšòÿ …¾S‘o¼F,àÓ¡“mÍ–¢™9RHò°Á KuÎk¸ø‰ãßÇl¶¶—© ¢W ‘ƒ€Gqô¯œÆá¨c³pÂ¤ùu›¶KµîxµğøXâ£*çIİöôì|İy©Şê×m}u&âü 8
+£¢ØJ· ikºüxm±“¾i;$kËË©Ğ]ø[G¼fŸA¿ŠÎ6%¾És’±ç²0ÉÇ±éëV­Å‡†t™à³¸7· ,Ó€rG¦y'¿õÑM¤ºŸ\ññö6§ñv¶ßğÅßGw«2Â >T_@8ò®~Ÿ+™%,NI¦W\U•jpäŠˆø¦’‘1VÅh¦µ(\<(ÇÔV]5qÊ
+[—n5K™×`Äjz…ê¥Eì5¶
+(¢…Q@Q@Q@Q@Q@&‘âe´³[[ÈÕ8GN¸ô"¢Ö¼Eöû²ÛFÑÄNY›«{}+ŠU{˜ûssÛP¢Š*‚Š( Š( Š( Š( ƒ‘]'‡ukÛk‘J67¬2ô#¸¢Š™«­LkÅ8;™ÿ ´3J{MCO‡ìæñKÉ
+İ«gøGo¦qéŠÑğ	¢xëv[ëæhå™HE9
+¾ƒ<Ÿ^=(¢¸b¯$™ç¶çNš–º²äŞ#ÕÙXµÓ{¿s7·sÜLZY(®ØÅ#¶”#¢+,²(ù\ŠFvcËEGBŞŠ(¦0¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š( ¢Š(ÿÙ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   t/end glyps on lines.
 	Added new fns to handle default node/link insertion.  Thus, you
 	will always insert the same type of node as done previously unless
 	you explicitly call something to set the defualt node, or use c-u

@@ -1,13 +1,26 @@
-(setq debug-on-error t)
-;; 不显示 隐藏文件
-(setq-default dired-listing-switches "-l")
-;; cedet 
-(add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
-(add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
-(add-to-list 'load-path "~/.emacs.d/elib-1.0")
-(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-(global-ede-mode t)
-(enable-visual-studio-bookmarks)
+(setq debug-on-error t) ;报告错误
+(setq backup-inhibited t) ;不产生备份
+(require 'hl-line)
+(global-hl-line-mode t)
+(define-key global-map "\C-c\C-g" 'goto-line) ;设置跳转快捷键
+(setq auto-save-default nil) ; 不生成名为#filename# 的临时文件
+(load-file "~/.emacs.d/init-dired/init-dired.el") ; config dired
+(mouse-avoidance-mode 'animate);光标靠近鼠标指针时，让鼠标指针自动让开
+(setq mouse-yank-at-point t);支持中键粘贴
+(global-cwarn-mode 1) ; 高亮显示C/C++中的可能的错误(CWarn mode)
+(setq initial-scratch-message ";; Abandon hope all ye who enter here\n") ;设置scratch的欢迎文字
+(setq default-directory "~/Code")    ;设置打开时的默认路径
+(setq inhibit-startup-message t) ; 去掉欢迎界面
+(global-set-key [C-tab] 'other-window) ;切换到另一个窗口，快捷键为C+Tab
+(setq-default make-backup-files nil) ;不要生成备份文件
+
+;; Cedet 
+;; (add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
+;; (add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
+;; (add-to-list 'load-path "~/.emacs.d/elib-1.0")
+;; (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
+;; (global-semanticdb-minor-mode 1)
+;; (global-ede-mode t)
 
 ;; jdee
 ;; If you want Emacs to defer loading the JDE until you open a 
@@ -22,6 +35,35 @@
              auto-mode-alist)))
 (require 'jde))
 
+;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
+(defun my-common-mode-auto-pair ()
+  (interactive)
+  (make-local-variable 'skeleton-pair-alist)
+  (setq skeleton-pair-alist  '(
+    (? ? _ "''")
+    (? ? _ """")
+    (? ?  _ "()")
+    (? ?  _ "[]")
+    (?{ \n > _ \n ?} >)))
+  (setq skeleton-pair t)
+  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+(add-hook 'c-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'c++-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'java-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'lisp-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'php-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'python-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'html-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'scheme-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'css-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'sql-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'emacs-lisp-mode-hook 'my-common-mode-auto-pair)
+(add-hook 'text-mode-hook 'my-common-mode-auto-pair)
+ 
 ;; web-mode
 (add-to-list 'load-path "~/.emacs.d/web-mode/")
 (require 'web-mode)
@@ -36,11 +78,12 @@
 
 (setq default-frame-alist'((height . 30) (width .40) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 (setq default-directory "~/Code")    ;设置打开时的默认路径
-(setq inhibit-startup-message t)
-;;切换到另一个窗口，快捷键为C+Tab
-(global-set-key [C-tab] 'other-window)
-;;启动最大化
-(global-set-key [f11] 'my-fullscreen);快捷键最大化
+
+(setq inhibit-startup-message t) ; 去掉欢迎界面
+
+(global-set-key [C-tab] 'other-window) ;切换到另一个窗口，快捷键为C+Tab
+
+(global-set-key [f12] 'my-fullscreen) ;快捷键最大化
 (defun my-fullscreen ()
 (interactive)
 (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
@@ -55,6 +98,8 @@
 (add-to-list 'load-path "~/.emacs.d/weibo/")
 (require 'weibo)
 (setq weibo-display-image nil)
+
+
 ;; 新版org-mode
 (setq load-path (cons "/org-7.8.11/lisp/" load-path))
 ;; 设置org-mode自动换行
@@ -66,29 +111,13 @@
 ;; 设置google-chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
-;; 设置org2blog
-(setq load-path (cons "~/.emacs.d/org2blog/" load-path))
-(require 'org2blog-autoloads)
-(setq org2blog/wp-blog-alist
-      '(("my-blog"
-         :url "http://samael.us/xmlrpc.php"
-         :username "samael65535")))
 
 ;; 设置color-theme
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0/")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-pok-wog)
-;; 备份文件目录
-(setq  backup-by-copying t) ; 自动备份
-;;自动备份目录backup
-(setq  backup-directory-alist  '(("." . "backup")))
-(setq  delete-old-versions t) ; 自动删除旧的备份文件
-(setq  kept-new-versions 2) ; 保留最近的3个备份文件
-(setq  kept-old-versions 1) ; 保留最早的2个备份文件
 (setq  version-control t) ; 多次备份
-;;;不要生成备份文件
-;(setq-default make-backup-files nil)
 
 ;; Function to copy lines 
 ;; C-c C-w 复制整行, 而"C-u 5 C-c w"复制 5 行
@@ -128,11 +157,10 @@
 (global-set-key "\C-ceb" 'evernote-browser)
 
 ;;设置TODO
-(global-set-key  (kbd "<f12>") 'todo-show)  ;F12设置为添加新的item
+(global-set-key  (kbd "<f11>") 'todo-show)  ;F11设置为添加新的item
 (setq todo-file-do "~/todo/do")
 (setq todo-file-done "~/todo/done")
 (setq todo-file-top "~/todo/top")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -141,7 +169,9 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
- '(ede-project-directories (quote ("/home/samael/Code/my_projects/c/test_cedet")))
+ '(ede-project-directories (quote ("/home/samael/Code/test/aa" "/home/samael/Code/my_projects/c/test_cedet")))
+ '(global-hl-line-mode t)
+ '(hl-line-face (quote hl-line))
  '(jde-java-environment-variables (quote ("1.6" "/usr/bin/java")))
  '(jde-jdk (quote ("1.6")))
  '(jde-jdk-registry (quote (("1.6.0" . "/usr/bin/java"))))
@@ -155,9 +185,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal))))
+ '(hl-line ((t (:background "gray13")))))
 
 (put 'dired-find-alternate-file 'disabled nil)
+
 
 ;;设置auto-complete
 (add-to-list 'load-path "~/.emacs.d/auto-complete")

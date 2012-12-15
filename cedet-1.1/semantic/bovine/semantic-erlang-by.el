@@ -3,7 +3,7 @@
 ;; Copyright (C) 2002, 2003 Vladimir G. Sekissov
 
 ;; Author: samael <samael@samael-ThinkPad-X200>
-;; Created: 2012-11-17 19:23:55+0800
+;; Created: 2012-06-04 21:33:23+0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

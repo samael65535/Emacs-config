@@ -3,7 +3,7 @@
 ;;; Copyright (C) 2007 Daniel Debertin (debertin@gmail.com)
 
 ;; Author: samael <samael@samael-ThinkPad-X200>
-;; Created: 2012-11-17 19:24:14+0800
+;; Created: 2012-06-04 21:33:43+0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

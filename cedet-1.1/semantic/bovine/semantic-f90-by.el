@@ -3,7 +3,7 @@
 ;; Copyright (C) 2010 Free Software Foundation
 
 ;; Author: samael <samael@samael-ThinkPad-X200>
-;; Created: 2012-11-17 19:23:56+0800
+;; Created: 2012-06-04 21:33:24+0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

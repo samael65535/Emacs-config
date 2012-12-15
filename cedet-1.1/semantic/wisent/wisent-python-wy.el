@@ -3,7 +3,7 @@
 ;; Copyright (C) 2002, 2003, 2004, 2007, 2012 Richard Kim
 
 ;; Author: samael <samael@samael-ThinkPad-X200>
-;; Created: 2012-11-17 19:23:49+0800
+;; Created: 2012-06-04 21:33:16+0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 
@@ -715,6 +715,10 @@
 ;;
 (require 'semantic-lex)
 
+(define-lex-keyword-type-analyzer wisent-python-wy--<keyword>-keyword-analyzer
+  "keyword analyzer for <keyword> tokens."
+  "\\(\\sw\\|\\s_\\)+")
+
 (define-lex-block-type-analyzer wisent-python-wy--<block>-block-analyzer
   "block analyzer for <block> tokens."
   "\\s(\\|\\s)"
@@ -781,10 +785,6 @@
     (GTGTEQ . ">>=")
     (LTLTEQ . "<<="))
   'punctuation)
-
-(define-lex-keyword-type-analyzer wisent-python-wy--<keyword>-keyword-analyzer
-  "keyword analyzer for <keyword> tokens."
-  "\\(\\sw\\|\\s_\\)+")
 
 
 ;;; Epilogue
