@@ -1,5 +1,6 @@
 (setq debug-on-error t) ;报告错误
 (setq backup-inhibited t) ;不产生备份
+;; 高亮当前行
 (require 'hl-line)
 (global-hl-line-mode t)
 (define-key global-map "\C-c\C-g" 'goto-line) ;设置跳转快捷键
@@ -57,15 +58,16 @@
 (add-hook 'c-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'c++-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'java-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'lisp-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'php-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'python-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'html-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'scheme-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'css-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'sql-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'emacs-lisp-mode-hook 'my-common-mode-auto-pair)
 (add-hook 'text-mode-hook 'my-common-mode-auto-pair)
+;; emacs-wiki
+(setq load-path (add-to-list 'load-path "~/.emacs.d/emacs-wiki"))
+(require 'emacs-wiki)
  
 ;; web-mode
 (add-to-list 'load-path "~/.emacs.d/web-mode/")
@@ -85,8 +87,8 @@
 (setq inhibit-startup-message t) ; 去掉欢迎界面
 
 (global-set-key [C-tab] 'other-window) ;切换到另一个窗口，快捷键为C+Tab
-
-(global-set-key [f12] 'my-fullscreen) ;快捷键最大化
+; f12全屏
+(global-set-key [f12] 'my-fullscreen)
 (defun my-fullscreen ()
 (interactive)
 (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
@@ -101,13 +103,54 @@
 (add-to-list 'load-path "~/.emacs.d/weibo/")
 (require 'weibo)
 (setq weibo-display-image nil)
+;; wikipedia-mode.el
 
+(autoload 'wikipedia-mode                                         
+  "~/.emacs.d/wikipedia-mode.el" 
+  "Major mode for editing documents in Wikipedia markup." t)      
+;; ibuffer 
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; 新版org-mode
 (setq load-path (cons "/org-7.8.11/lisp/" load-path))
 ;; 设置org-mode自动换行
 (add-hook 'org-mode-hook 'toggle-truncate-lines)
-
+;; tabbar 设置
+(add-to-list 'load-path "~/.emacs.d/tabbar")
+(require 'tabbar)
+(tabbar-mode 1)
+(global-set-key [(meta j)] 'tabbar-backward)  
+(global-set-key [(meta k)] 'tabbar-forward)  
+;; 设置tabbar外观  
+;; 设置默认主题: 字体, 背景和前景颜色，大小  
+(set-face-attribute 'tabbar-default nil  
+                    :family "DejaVu Sans Mono"  
+                    :background "gray80"  
+                    :foreground "gray30"  
+                    :height 1.0  
+                    )  
+;; 设置左边按钮外观：外框框边大小和颜色  
+(set-face-attribute 'tabbar-button nil  
+                    :inherit 'tabbar-default  
+                    :box '(:line-width 1 :color "yellow70")  
+                    )  
+;; 设置当前tab外观：颜色，字体，外框大小和颜色  
+(set-face-attribute 'tabbar-selected nil  
+                    :inherit 'tabbar-default  
+                    :foreground "DarkGreen"  
+                    :background "LightGoldenrod"  
+                    :box '(:line-width 2 :color "DarkGoldenrod")  
+                    :overline "black"  
+                    :underline "black"  
+                    :weight 'bold  
+                    )  
+;; 设置非当前tab外观：外框大小和颜色  
+(set-face-attribute 'tabbar-unselected nil  
+                    :inherit 'tabbar-default  
+                    :box '(:line-width 2 :color "#00B2BF")  
+                    )  
+ 
 ;; xml-rpc
 (add-to-list 'load-path "~/.emacs.d/xml-rpc")
 (require 'xml-rpc)
@@ -140,6 +183,13 @@
 
 ;; 设置shell
 (ansi-color-for-comint-mode-on)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector [default default default italic underline bold bold-italic modeline])
+ '(ansi-color-names-vector ["black" "red" "PaleGreen" "yellow" "DodgerBlue1" "magenta" "cyan" "white"]))
 
 ;; 显示行号
 (require 'linum)
@@ -170,7 +220,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(ede-project-directories (quote ("/home/samael/Code/test/aa" "/home/samael/Code/my_projects/c/test_cedet")))
  '(global-hl-line-mode t)
@@ -225,10 +274,10 @@
 ;;xscheme-mode
 (add-to-list 'load-path "~/.emacs.d/xscheme/xscheme.el")
 (require 'xscheme)
-;;设置magit
-(add-to-list 'load-path "~/.emacs.d/magit/")
-(require 'magit)
 
+;;git-emacs
+(add-to-list 'load-path "~/.emacs.d/git-emacs/")
+(require 'git-emacs)
 ;; 设置最近打开的文件
 (recentf-mode t)
 
