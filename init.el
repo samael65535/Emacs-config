@@ -17,7 +17,7 @@
 (setq-default make-backup-files nil) ;不要生成备份文件
 ;; markdown-mode
 (autoload 'markdown-mode "~/.emacs.d/markdown-mode/markdown-mode.el" "Major mode for editing Markdown files" t) 
-(setq auto-mode-alist (cons '("\\.text" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 ;; Cedet 
 ;; (add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
 ;; (add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
@@ -38,36 +38,6 @@
              '(("\\.java\\'" . jde-mode))    
              auto-mode-alist)))
 (require 'jde))
-
-;;输入左边的括号，就会自动补全右边的部分.包括(), "", [] , {} , 等等。
-(defun my-common-mode-auto-pair ()
-  (interactive)
-  (make-local-variable 'skeleton-pair-alist)
-  (setq skeleton-pair-alist  '(
-    (? ? _ "''")
-    (? ? _ """")
-    (? ?  _ "()")
-    (? ?  _ "[]")
-    (?{ \n > _ \n ?} >)))
-  (setq skeleton-pair t)
-  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
-(add-hook 'c-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'c++-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'java-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'php-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'python-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'html-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'scheme-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'css-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'sql-mode-hook 'my-common-mode-auto-pair)
-(add-hook 'text-mode-hook 'my-common-mode-auto-pair)
-;; emacs-wiki
-(setq load-path (add-to-list 'load-path "~/.emacs.d/emacs-wiki"))
-(require 'emacs-wiki)
  
 ;; web-mode
 (add-to-list 'load-path "~/.emacs.d/web-mode/")
@@ -106,7 +76,7 @@
 ;; wikipedia-mode.el
 
 (autoload 'wikipedia-mode                                         
-  "~/.emacs.d/wikipedia-mode.el" 
+  "~/.emacs.d/wikipedia-mode/wikipedia-mode.el" 
   "Major mode for editing documents in Wikipedia markup." t)      
 ;; ibuffer 
 (require 'ibuffer)
@@ -120,8 +90,8 @@
 (add-to-list 'load-path "~/.emacs.d/tabbar")
 (require 'tabbar)
 (tabbar-mode 1)
-(global-set-key [(meta j)] 'tabbar-backward)  
-(global-set-key [(meta k)] 'tabbar-forward)  
+(global-set-key (kbd "C--") 'tabbar-backward)  
+(global-set-key (kbd "C-=") 'tabbar-forward)  
 ;; 设置tabbar外观  
 ;; 设置默认主题: 字体, 背景和前景颜色，大小  
 (set-face-attribute 'tabbar-default nil  
@@ -285,3 +255,15 @@
 (add-to-list 'load-path "~/.emacs.d/golden-ratio/")
 (require 'golden-ratio)
 (golden-ratio-enable)
+
+
+;; compile 一键
+(global-set-key [f9] 'compile) 
+
+;; browse-kill-ring 功能
+(add-to-list 'load-path "~/.emacs.d/browse-kill-ring/")
+(require 'browse-kill-ring)
+(require 'browse-kill-ring+)
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
+
+
