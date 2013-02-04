@@ -1,4 +1,4 @@
-(setq debug-on-error t) ;报告错误
+;; (setq debug-on-error t) ;报告错误
 (setq backup-inhibited t) ;不产生备份
 ;; 高亮当前行
 (require 'hl-line)
@@ -266,4 +266,16 @@
 (require 'browse-kill-ring+)
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
 
+(put 'set-goal-column 'disabled nil)
 
+;; smex
+(add-to-list 'load-path "~/.emacs.d/smex/")
+(require 'smex) ; Not needed if you use package.el
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
+;; delete-regio
+(global-set-key (kbd "C-c d") 'delete-region)
