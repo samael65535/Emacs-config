@@ -18,36 +18,7 @@
 ;; markdown-mode
 (autoload 'markdown-mode "~/.emacs.d/markdown-mode/markdown-mode.el" "Major mode for editing Markdown files" t) 
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
-;; cedet
-;; (add-to-list 'load-path "~/.emacs.d/jdee-2.4.0.1/lisp")
-;; (add-to-list 'load-path "~/.emacs.d/cedet-1.1/common")
-;; (add-to-list 'load-path "~/.emacs.d/elib-1.0")
-;; (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-;; (global-semanticdb-minor-mode 1)
-;; (global-ede-mode t)
-
-;;jdee
-;; If you want Emacs to defer loading the JDE until you open a 
-;; Java file, edit the following line
-(setq defer-loading-jde t)
-(if defer-loading-jde    
-    (progn    
-      (autoload 'jde-mode "jde" "JDE mode." t)    
-      (setq auto-mode-alist    
-            (append    
-             '(("\\.java\\'" . jde-mode))    
-             auto-mode-alist)))
-(require 'jde))
  
-;; web-mode
-(add-to-list 'load-path "~/.emacs.d/web-mode/")
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-
 (defun screen-width nil -1)
 (define-obsolete-function-alias 'make-local-hook 'ignore "21.1")
 
@@ -149,26 +120,6 @@
 
 ;; 设置shell
 (ansi-color-for-comint-mode-on)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector [default default default italic underline bold bold-italic modeline])
- '(ansi-color-names-vector ["black" "red" "PaleGreen" "yellow" "DodgerBlue1" "magenta" "cyan" "white"])
- '(column-number-mode t)
- '(display-time-mode t)
- '(ede-project-directories (quote ("/home/samael/Code/os_diy/08test" "/home/samael/Code/os_diy/08" "/home/samael/Code/test/aa" "/home/samael/Code/my_projects/c/test_cedet")))
- '(global-hl-line-mode t)
- '(hl-line-face (quote hl-line))
- '(jde-java-environment-variables (quote ("1.6" "/usr/bin/java")))
- '(jde-jdk (quote ("1.6")))
- '(jde-jdk-registry (quote (("1.6.0" . "/usr/bin/java"))))
- '(safe-local-variable-values (quote ((encoding . utf-8) (todo-categories "study plan" "reading book" "personal") (todo-categories "reading book" "study plan" "personal") (todo-categories "study plan" "personal"))))
- '(scroll-bar-mode (quote right))
- '(send-mail-function (quote smtpmail-send-it))
- '(smtpmail-smtp-server "smtp.gmail.com")
- '(smtpmail-smtp-service 25))
 
 ;; 显示行号
 (require 'linum)
@@ -256,7 +207,7 @@
 ;; This is your old M-x.
 ;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; delete-regio
+;; delete-region
 (global-set-key (kbd "C-c d") 'delete-region)
 
 ;; etags
