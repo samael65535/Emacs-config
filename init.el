@@ -1,4 +1,4 @@
-(setq debug-on-error t) ;报告错误
+;; (setq debug-on-error t) ;报告错误
 (setq backup-inhibited t) ;不产生备份
 ;; 高亮当前行
 (require 'hl-line)
@@ -22,7 +22,6 @@
 (defun screen-width nil -1)
 (define-obsolete-function-alias 'make-local-hook 'ignore "21.1")
 
-(setq default-frame-alist'((height . 30) (width .40) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 (setq default-directory "~/Code")    ;设置打开时的默认路径
 
 (setq inhibit-startup-message t) ; 去掉欢迎界面
@@ -213,3 +212,11 @@
 ;; etags
 (add-to-list 'load-path "~/.emacs.d/etags-mode/")
 (autoload 'gtags-mode "gtags" "" t)
+(custom-set-variables
+
+
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(tool-bar-mode nil))
