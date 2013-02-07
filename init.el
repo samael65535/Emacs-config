@@ -142,34 +142,20 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; 设置yasnippet
+(add-to-list 'load-path "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;;设置auto-complete
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/ac-dict")
 (ac-config-default)
+(global-auto-complete-mode t)
 
 ;;代码折叠
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
-;;设置yasnippet
-(add-to-list 'load-path "~/.emacs.d/yasnippet")
-(require 'yasnippet-bundle)
-(put 'upcase-region 'disabled nil)
-
-(defface ac-yasnippet-candidate-face
-  '((t (:backgrodund "sandybrown" :foreground "black")))
-  "Face for yasnippet candidate.")
- 
-(defface ac-yasnippet-selection-face
-  '((t (:background "coral3" :foreground "white")))
-  "Face for the yasnippet selected candidate.")
- 
-(defvar ac-source-yasnippet
-  '((candidates . ac-yasnippet-candidate)
-    (action . yas/expand)
-    (candidate-face . ac-yasnippet-candidate-face)
-    (selection-face . ac-yasnippet-selection-face))
-  "Source for Yasnippet.")
 
 ;;xscheme-mode
 (add-to-list 'load-path "~/.emacs.d/xscheme/xscheme.el")

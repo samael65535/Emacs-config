@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("2013.02.05"
+ (filename . "~/Code/os_diy/08/console.c")
+ (front-context-string . ";\n  }else if(cmd")
+ (rear-context-string . ", 5) == 0){\n    ")
+ (position . 4139))
+("console.c"
+ (filename . "~/Code/os_diy/08/console.c")
+ (front-context-string . ";\n  }else if(cmd")
+ (rear-context-string . ", 5) == 0){\n    ")
+ (position . 4139))
+)
